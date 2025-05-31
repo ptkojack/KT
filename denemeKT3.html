@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinezyo Bantlama Derneği | Profesyonel Kinezyolojik Bantlama Eğitimleri</title>
+    <!-- Font Awesome ikon kütüphanesi - Sitede kullanılan tüm ikonlar buradan geliyor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Başlıklar için Montserrat, normal metinler için Open Sans fontu -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* TEMA RENKLERİ VE DEĞİŞKENLER */
+        :root {
+            --primary: #1a6dcc;       /* Ana mavi renk (butonlar, bağlantılar) */
+            --secondary: #00a896;     /* Yardımcı turkuaz renk (ikincil butonlar) */
+            --dark: #2c3e50;          /* Koyu arka planlar için (header, footer) */
+            --light: #f8f9fa;         /* Açık arka planlar için (bölüm arka planları) */
+            --gray: #6c757d;          /* Gri metinler için (açıklama yazıları) */
+            --accent: #ff6b6b;        /* Vurgu rengi (kırmızı, etkinlik tarihleri) */
+            --transition: all 0.3s ease; /* Tüm geçiş efektleri için standart süre */
+        }
+        
+        /* GENEL STİL AYARLARI */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Padding ve border'ı genişliğe dahil eder */
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif; /* Normal metinler için font */
+            color: var(--dark); /* Varsayılan metin rengi */
+            line-height: 1.6; /* Satır aralığı */
+            background-color: #ffffff; /* Sayfa arka plan rengi */
+            overflow-x: hidden; /* Yatay kaydırmayı engeller */
+        }
+        
+        /* BAŞLIK STİLLERİ */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif; /* Başlıklar için font */
+            font-weight: 700; /* Kalın yazı */
+            line-height: 1.3; /* Başlık satır aralığı */
+        }
+        
+        /* KONTEYNER - Tüm içeriği sarmalar ve ortalar */
+        .container {
+            width: 100%;
+            max-width: 1200px; /* Maksimum genişlik (büyük ekranlarda merkezde kalması için) */
+            margin: 0 auto; /* Ortalar */
+            padding: 0 20px; /* Yanlardan boşluk (mobil uyumluluk için) */
+        }
+        
+        /* BUTON STİLLERİ - Tüm site butonları için temel stil */
+        .btn {
+            display: inline-block;
+            background: var(--primary); /* Mavi arka plan */
+            color: white; /* Beyaz yazı */
+            padding: 12px 28px; /* İç boşluk */
+            border-radius: 50px; /* Yuvarlak köşeler */
+            text-decoration: none; /* Alt çizgiyi kaldırır */
+            font-weight: 600; /* Kalın yazı */
+            text-transform: uppercase; /* BÜYÜK HARF */
+            letter-spacing: 1px; /* Harf aralığı */
+            font-size: 14px; /* Yazı boyutu */
+            transition: var(--transition); /* Geçiş efekti */
+            border: none; /* Kenarlık yok */
+            cursor: pointer; /* İmleç el şekli */
+        }
+        
+        .btn:hover {
+            background: #1559b3; /* Hover rengi (daha koyu mavi) */
+            transform: translateY(-2px); /* Hafif yukarı hareket */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+        }
+        
+        /* İkincil butonlar için farklı renk */
+        .btn-secondary {
+            background: var(--secondary); /* Turkuaz arka plan */
+        }
+        
+        .btn-secondary:hover {
+            background: #008d7d; /* Hover rengi (daha koyu turkuaz) */
+        }
+        
+        /* BÖLÜM STİLLERİ - Her bölüm için standart boşluk */
+        .section {
+            padding: 80px 0; /* Üstten ve alttan boşluk */
+        }
+        
+        /* BÖLÜM BAŞLIKLARI - Tüm bölüm başlıkları için ortak stil */
+        .section-title {
+            text-align: center; /* Ortalama */
+            margin-bottom: 60px; /* Alt boşluk */
+            position: relative; /* Altındaki çizgi için göreceli pozisyon */
+        }
+        
+        .section-title h2 {
+            font-size: 36px; /* Başlık boyutu */
+            color: var(--dark); /* Renk */
+            margin-bottom: 15px; /* Alt boşluk */
+        }
+        
+        .section-title p {
+            color: var(--gray); /* Gri renk */
+            max-width: 700px; /* Maksimum genişlik */
+            margin: 0 auto; /* Ortalama */
+        }
+        
+        /* Başlık altındaki mavi çizgi */
+        .section-title::after {
+            content: ''; /* İçerik yok */
+            position: absolute; /* Mutlak pozisyon */
+            width: 80px; /* Genişlik */
+            height: 4px; /* Yükseklik */
+            background: var(--primary); /* Mavi çizgi */
+            bottom: -15px; /* Pozisyon */
+            left: 50%; /* Ortalama */
+            transform: translateX(-50%); /* Tam ortaya getirir */
+            border-radius: 2px; /* Hafif yuvarlak köşe */
+        }
+        
+        /* ÜST BİLGİ ÇUBUĞU - Telefon ve email bilgileri */
+        .top-bar {
+            background-color: var(--dark); /* Koyu arka plan */
+            color: white; /* Beyaz yazı */
+            padding: 8px 0; /* İç boşluk */
+            font-size: 14px; /* Yazı boyutu */
+        }
+        
+        .top-bar-content {
+            display: flex; /* Esnek kutu */
+            justify-content: space-between; /* Elemanları yay */
+            align-items: center; /* Dikeyde ortala */
+        }
+        
+        .contact-info {
+            display: flex; /* Esnek kutu */
+            gap: 20px; /* Elemanlar arası boşluk */
+        }
+        
+        .contact-info span {
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 8px; /* İkon ile metin arası boşluk */
+        }
+        
+        /* SOSYAL MEDYA İKONLARI */
+        .social-icons {
+            display: flex; /* Esnek kutu */
+            gap: 15px; /* İkonlar arası boşluk */
+        }
+        
+        .social-icons a {
+            color: white; /* Beyaz renk */
+            transition: var(--transition); /* Geçiş efekti */
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary); /* Hover rengi (mavi) */
+        }
+        
+        /* BAŞLIK ALANI (Header) - Logo ve navigasyon menüsü */
+        header {
+            background-color: white; /* Beyaz arka plan */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            position: sticky; /* Sayfa kaydırıldığında üstte sabit kalır */
+            top: 0; /* Üstten 0 */
+            z-index: 1000; /* Diğer elementlerin üstünde görünmesi için */
+        }
+        
+        .header-content {
+            display: flex; /* Esnek kutu */
+            justify-content: space-between; /* Logo ve menüyü yan yana yerleştirir */
+            align-items: center; /* Dikeyde ortala */
+            padding: 20px 0; /* İç boşluk */
+        }
+        
+        /* LOGO ALANI */
+        .logo {
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 15px; /* Logo ikonu ile metin arası boşluk */
+        }
+        
+        .logo img {
+            height: 60px; /* Logo yüksekliği */
+        }
+        
+        .logo-text {
+            display: flex; /* Esnek kutu */
+            flex-direction: column; /* Dikey düzen */
+        }
+        
+        .logo-text h1 {
+            font-size: 24px; /* Başlık boyutu */
+            color: var(--primary); /* Mavi renk */
+            margin: 0; /* Kenar boşluğu yok */
+        }
+        
+        .logo-text span {
+            font-size: 14px; /* Yazı boyutu */
+            color: var(--gray); /* Gri renk */
+            letter-spacing: 1px; /* Harf aralığı */
+        }
+        
+        /* NAVİGASYON MENÜSÜ */
+        nav ul {
+            display: flex; /* Esnek kutu */
+            list-style: none; /* Liste işareti yok */
+            gap: 30px; /* Menü öğeleri arası boşluk */
+        }
+        
+        nav li {
+            position: relative; /* Açılır menüler için göreceli pozisyon */
+        }
+        
+        nav a {
+            text-decoration: none; /* Alt çizgi yok */
+            color: var(--dark); /* Koyu renk */
+            font-weight: 600; /* Kalın yazı */
+            font-size: 16px; /* Yazı boyutu */
+            transition: var(--transition); /* Geçiş efekti */
+            position: relative; /* Altındaki çizgi için göreceli pozisyon */
+            padding: 8px 12px; /* İç boşluk */
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 5px; /* İkon ile metin arası boşluk */
+        }
+        
+        nav a:hover {
+            color: var(--primary); /* Hover rengi (mavi) */
+        }
+        
+        /* Menü öğelerinin altındaki animasyonlu çizgi */
+        nav a::after {
+            content: ''; /* İçerik yok */
+            position: absolute; /* Mutlak pozisyon */
+            width: 0; /* Başlangıç genişliği 0 */
+            height: 3px; /* Yükseklik */
+            background: var(--primary); /* Mavi çizgi */
+            bottom: -5px; /* Pozisyon */
+            left: 0; /* Soldan başlar */
+            transition: var(--transition); /* Geçiş efekti */
+        }
+        
+        nav a:hover::after {
+            width: 100%; /* Hover'da tam genişlik */
+        }
+        
+        /* AÇILIR MENÜ STİLLERİ - Hakkımızda ve Eğitim menüleri için */
+        .dropdown-menu {
+            position: absolute; /* Mutlak pozisyon */
+            top: 100%; /* Üst menünün altında */
+            left: 0; /* Soldan başlar */
+            background: white; /* Beyaz arka plan */
+            min-width: 220px; /* Minimum genişlik */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+            border-radius: 5px; /* Yuvarlak köşeler */
+            opacity: 0; /* Başlangıçta görünmez */
+            visibility: hidden; /* Başlangıçta görünmez */
+            transform: translateY(10px); /* Başlangıç pozisyonu */
+            transition: var(--transition); /* Geçiş efekti */
+            z-index: 1000; /* Diğer elementlerin üstünde görünmesi için */
+            padding: 10px 0; /* İç boşluk */
+        }
+        
+        /* Açılır menüyü görünür yapma */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1; /* Görünür */
+            visibility: visible; /* Görünür */
+            transform: translateY(0); /* Normal pozisyon */
+        }
+        
+        .dropdown-menu li {
+            padding: 0; /* Kenar boşluğu yok */
+        }
+        
+        .dropdown-menu a {
+            padding: 10px 20px; /* İç boşluk */
+            color: var(--dark); /* Koyu renk */
+            display: block; /* Blok öğe */
+            font-size: 14px; /* Yazı boyutu */
+            transition: var(--transition); /* Geçiş efekti */
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(26, 109, 204, 0.05); /* Hafif mavi arka plan */
+            color: var(--primary); /* Mavi renk */
+            padding-left: 25px; /* Sağa kaydırma efekti */
+        }
+        
+        .dropdown-menu a i {
+            width: 20px; /* Genişlik */
+            text-align: center; /* Ortalama */
+        }
+        
+        /* MOBİL MENÜ DÜĞMESİ (tablet ve mobilde görünür) */
+        .mobile-toggle {
+            display: none; /* Varsayılan olarak gizli (masaüstünde) */
+            font-size: 24px; /* Boyut */
+            cursor: pointer; /* İmleç el şekli */
+        }
+        
+        /* HERO BÖLÜMÜ (Ana Banner) - En üstteki büyük görsel bölümü */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), url('https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover; /* Resmi kapla */
+            background-position: center; /* Ortala */
+            height: 80vh; /* Ekran yüksekliğinin %80'i */
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            color: white; /* Beyaz yazı */
+            position: relative; /* Göreceli pozisyon */
+        }
+        
+        .hero-content {
+            max-width: 700px; /* Maksimum genişlik */
+        }
+        
+        .hero h1 {
+            font-size: 48px; /* Başlık boyutu */
+            margin-bottom: 20px; /* Alt boşluk */
+            line-height: 1.2; /* Satır aralığı */
+        }
+        
+        .hero p {
+            font-size: 18px; /* Yazı boyutu */
+            margin-bottom: 30px; /* Alt boşluk */
+        }
+        
+        .hero-buttons {
+            display: flex; /* Esnek kutu */
+            gap: 15px; /* Butonlar arası boşluk */
+        }
+        
+        /* ÖZELLİKLER BÖLÜMÜ - Neden bizi seçmelisiniz? */
+        .features {
+            background-color: var(--light); /* Açık arka plan */
+        }
+        
+        .features-grid {
+            display: grid; /* Grid düzeni */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 30px; /* Kartlar arası boşluk */
+        }
+        
+        /* Her bir özellik kartı */
+        .feature-card {
+            background: white; /* Beyaz arka plan */
+            border-radius: 10px; /* Yuvarlak köşeler */
+            padding: 30px; /* İç boşluk */
+            text-align: center; /* Ortalama */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+            transition: var(--transition); /* Geçiş efekti */
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px); /* Yukarı hareket */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Belirgin gölge */
+        }
+        
+        /* Özellik ikonları için stil */
+        .feature-icon {
+            width: 80px; /* Genişlik */
+            height: 80px; /* Yükseklik */
+            background: rgba(26, 109, 204, 0.1); /* Şeffaf mavi arka plan */
+            border-radius: 50%; /* Daire şekli */
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            justify-content: center; /* Yatayda ortala */
+            margin: 0 auto 20px; /* Ortalama ve alt boşluk */
+            font-size: 30px; /* İkon boyutu */
+            color: var(--primary); /* Mavi renk */
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px; /* Alt boşluk */
+            font-size: 22px; /* Başlık boyutu */
+        }
+        
+        /* EĞİTİMLER BÖLÜMÜ - Kurs programları */
+        .courses-grid {
+            display: grid; /* Grid düzeni */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid */
+            gap: 30px; /* Kartlar arası boşluk */
+        }
+        
+        /* Her bir kurs kartı */
+        .course-card {
+            background: white; /* Beyaz arka plan */
+            border-radius: 10px; /* Yuvarlak köşeler */
+            overflow: hidden; /* Taşan içeriği gizle */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+            transition: var(--transition); /* Geçiş efekti */
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px); /* Yukarı hareket */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Belirgin gölge */
+        }
+        
+        /* Kurs resim alanı */
+        .course-img {
+            height: 200px; /* Yükseklik */
+            background-color: var(--secondary); /* Varsayılan arka plan rengi */
+            background-size: cover; /* Resmi kapla */
+            background-position: center; /* Ortala */
+        }
+        
+        .course-content {
+            padding: 25px; /* İç boşluk */
+        }
+        
+        .course-content h3 {
+            margin-bottom: 10px; /* Alt boşluk */
+            font-size: 20px; /* Başlık boyutu */
+        }
+        
+        /* Kurs meta bilgileri (süre, seviye) */
+        .course-meta {
+            display: flex; /* Esnek kutu */
+            justify-content: space-between; /* Elemanları yay */
+            margin: 15px 0; /* Üst ve alt boşluk */
+            font-size: 14px; /* Yazı boyutu */
+            color: var(--gray); /* Gri renk */
+        }
+        
+        .course-meta span {
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 5px; /* İkon ile metin arası boşluk */
+        }
+        
+        /* ETKİNLİKLER BÖLÜMÜ - Yaklaşan etkinlikler */
+        .events {
+            background: linear-gradient(135deg, rgba(26, 109, 204, 0.9) 0%, rgba(0, 168, 150, 0.9) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover; /* Resmi kapla */
+            background-position: center; /* Ortala */
+            color: white; /* Beyaz yazı */
+        }
+        
+        /* Etkinlikler bölümü için özel başlık renkleri */
+        .events .section-title h2,
+        .events .section-title p {
+            color: white; /* Beyaz yazı */
+        }
+        
+        .events .section-title::after {
+            background: white; /* Beyaz çizgi */
+        }
+        
+        .events-grid {
+            display: grid; /* Grid düzeni */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 25px; /* Kartlar arası boşluk */
+        }
+        
+        /* Her bir etkinlik kartı */
+        .event-card {
+            background: rgba(255, 255, 255, 0.15); /* Şeffaf beyaz arka plan */
+            backdrop-filter: blur(10px); /* Bulanık arka plan efekti */
+            border-radius: 10px; /* Yuvarlak köşeler */
+            padding: 25px; /* İç boşluk */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* İnce beyaz kenarlık */
+        }
+        
+        .event-date {
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 10px; /* Tarih ikonu ile metin arası boşluk */
+            margin-bottom: 15px; /* Alt boşluk */
+        }
+        
+        .event-date span {
+            background: var(--accent); /* Kırmızı arka plan (daire içinde) */
+            width: 50px; /* Genişlik */
+            height: 50px; /* Yükseklik */
+            border-radius: 50%; /* Daire şekli */
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            justify-content: center; /* Yatayda ortala */
+            font-weight: bold; /* Kalın yazı */
+            font-size: 18px; /* Yazı boyutu */
+        }
+        
+        .event-card h3 {
+            margin-bottom: 10px; /* Alt boşluk */
+            font-size: 20px; /* Başlık boyutu */
+        }
+        
+        /* HAKKIMIZDA BÖLÜMÜ - Biz kimiz? */
+        .about {
+            background-color: #f9fbfd; /* Açık mavi arka plan */
+        }
+        
+        .about-content {
+            display: grid; /* Grid düzeni */
+            grid-template-columns: 1fr 1fr; /* İki eşit sütun */
+            gap: 50px; /* Resim ile metin arası boşluk */
+            align-items: center; /* Dikeyde ortala */
+        }
+        
+        .about-image {
+            border-radius: 10px; /* Yuvarlak köşeler */
+            overflow: hidden; /* Taşan içeriği gizle */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+        }
+        
+        .about-image img {
+            width: 100%; /* Tam genişlik */
+            height: auto; /* Orantılı yükseklik */
+            display: block; /* Blok öğe */
+        }
+        
+        .about-text h2 {
+            margin-bottom: 20px; /* Alt boşluk */
+            color: var(--dark); /* Koyu renk */
+        }
+        
+        .about-text p {
+            margin-bottom: 15px; /* Alt boşluk */
+            color: var(--gray); /* Gri renk */
+        }
+        
+        /* Özellik listesi */
+        .about-features {
+            margin-top: 30px; /* Üst boşluk */
+            display: grid; /* Grid düzeni */
+            grid-template-columns: 1fr 1fr; /* İki sütun */
+            gap: 20px; /* Öğeler arası boşluk */
+        }
+        
+        .about-feature {
+            display: flex; /* Esnek kutu */
+            align-items: flex-start; /* Üstten hizala */
+            gap: 15px; /* İkon ile metin arası boşluk */
+        }
+        
+        .about-feature i {
+            color: var(--primary); /* Mavi renk */
+            font-size: 24px; /* İkon boyutu */
+            margin-top: 5px; /* İkonu metne göre biraz yukarıda */
+        }
+        
+        /* FOOTER (Alt Bilgi) - Site sonu bilgileri */
+        footer {
+            background: var(--dark); /* Koyu arka plan */
+            color: white; /* Beyaz yazı */
+            padding: 60px 0 30px; /* Üst, yan ve alt boşluk */
+        }
+        
+        .footer-grid {
+            display: grid; /* Grid düzeni */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 40px; /* Kolonlar arası boşluk */
+            margin-bottom: 40px; /* Alt boşluk */
+        }
+        
+        .footer-col h3 {
+            font-size: 20px; /* Başlık boyutu */
+            margin-bottom: 25px; /* Alt boşluk */
+            position: relative; /* Altındaki çizgi için göreceli pozisyon */
+            padding-bottom: 10px; /* Alt iç boşluk */
+        }
+        
+        /* Footer başlığı altındaki mavi çizgi */
+        .footer-col h3::after {
+            content: ''; /* İçerik yok */
+            position: absolute; /* Mutlak pozisyon */
+            left: 0; /* Soldan başlar */
+            bottom: 0; /* Alttan başlar */
+            width: 50px; /* Genişlik */
+            height: 3px; /* Yükseklik */
+            background: var(--primary); /* Mavi çizgi */
+        }
+        
+        .footer-links {
+            list-style: none; /* Liste işareti yok */
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px; /* Alt boşluk */
+        }
+        
+        .footer-links a {
+            color: #b0b0b0; /* Açık gri renk */
+            text-decoration: none; /* Alt çizgi yok */
+            transition: var(--transition); /* Geçiş efekti */
+            display: flex; /* Esnek kutu */
+            align-items: center; /* Dikeyde ortala */
+            gap: 10px; /* İkon ile metin arası boşluk */
+        }
+        
+        .footer-links a:hover {
+            color: white; /* Beyaz renk */
+            transform: translateX(5px); /* Sağa kaydırma efekti */
+        }
+        
+        /* İletişim bilgileri listesi */
+        .contact-list li {
+            display: flex; /* Esnek kutu */
+            align-items: flex-start; /* Üstten hizala */
+            gap: 15px; /* İkon ile metin arası boşluk */
+            margin-bottom: 20px; /* Alt boşluk */
+        }
+        
+        .contact-list i {
+            color: var(--primary); /* Mavi renk */
+            font-size: 20px; /* İkon boyutu */
+            margin-top: 4px; /* İkonu metne göre biraz yukarıda */
+        }
+        
+        /* Telif hakkı bölümü */
+        .copyright {
+            text-align: center; /* Ortalama */
+            padding-top: 30px; /* Üst iç boşluk */
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* İnce çizgi */
+            color: #b0b0b0; /* Açık gri renk */
+            font-size: 14px; /* Yazı boyutu */
+        }
+        
+        /* RESPONSIVE TASARIM - Mobil Uyumluluk */
+        
+        /* Tablet boyutları için (992px ve altı) */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px; /* Daha küçük başlık */
+            }
+            
+            nav ul {
+                gap: 20px; /* Menü öğeleri arası daha az boşluk */
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr; /* Tek sütun (resim ve metin alt alta) */
+            }
+        }
+        
+        /* Küçük tabletler ve büyük mobil cihazlar (768px ve altı) */
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column; /* Dikey düzen (telefon ve sosyal medya alt alta) */
+                gap: 10px; /* Elemanlar arası boşluk */
+            }
+            
+            .header-content {
+                flex-direction: column; /* Logo ve menü alt alta */
+                text-align: center; /* Ortalama */
+                gap: 20px; /* Logo ile menü arası boşluk */
+            }
+            
+            nav ul {
+                flex-wrap: wrap; /* Çok sayıda menü öğesi varsa kaydırma */
+                justify-content: center; /* Ortalama */
+            }
+            
+            .hero h1 {
+                font-size: 32px; /* Daha küçük başlık */
+            }
+            
+            .hero-buttons {
+                flex-direction: column; /* Butonlar alt alta */
+                align-items: flex-start; /* Soldan hizala */
+            }
+            
+            /* Mobil menü düğmesini göster */
+            .mobile-toggle {
+                display: block; /* Göster */
+                position: absolute; /* Mutlak pozisyon */
+                top: 30px; /* Üstten uzaklık */
+                right: 20px; /* Sağdan uzaklık */
+            }
+            
+            .section {
+                padding: 60px 0; /* Bölüm boşluklarını azalt */
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr; /* Özellik listesini tek sütun yap */
+            }
+        }
+        
+        /* Mobil cihazlar için (576px ve altı) */
+        @media (max-width: 576px) {
+            .hero {
+                height: auto; /* Otomatik yükseklik */
+                padding: 100px 0; /* İç boşluk */
+            }
+            
+            .feature-card {
+                padding: 20px; /* Daha az iç boşluk */
+            }
+            
+            .section-title h2 {
+                font-size: 28px; /* Daha küçük başlık */
+            }
+            
+            .dropdown-menu {
+                min-width: 180px; /* Daha dar menü */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST BİLGİ ÇUBUĞU - Telefon, email ve sosyal medya bağlantıları -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <!-- Telefon bilgisi -->
+                <span><i class="fas fa-phone"></i> 0212 123 45 67</span>
+                <!-- Email bilgisi -->
+                <span><i class="fas fa-envelope"></i> info@kinezyodernegi.org</span>
+            </div>
+            <!-- Sosyal medya ikonları -->
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BAŞLIK ALANI - Logo ve navigasyon menüsü -->
+    <header>
+        <div class="container header-content">
+            <!-- Logo bölümü -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <!-- Logo ikonu (Font Awesome) -->
+                    <i class="fas fa-plus-square fa-2x" style="color: var(--primary);"></i>
+                </div>
+                <div class="logo-text">
+                    <!-- Ana başlık -->
+                    <h1>Kinezyo Bantlama Derneği</h1>
+                    <!-- Alt başlık -->
+                    <span>Profesyonel Kinezyolojik Bantlama Eğitimleri</span>
+                </div>
+            </div>
+            
+            <!-- Navigasyon menüsü -->
+            <nav>
+                <ul>
+                    <!-- Ana Sayfa menü öğesi -->
+                    <li><a href="#"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                    
+                    <!-- Hakkımızda açılır menü -->
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-info-circle"></i> Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                        <!-- Açılır menü içeriği -->
+                        <ul class="dropdown-menu">
+                            <li><a href="biz-kimiz.html"><i class="fas fa-circle"></i> Biz kimiz?</a></li>
+                            <li><a href="kinezyo-bant-nedir.html"><i class="fas fa-circle"></i> Kinezyo bant ve bantlama nedir?</a></li>
+                            <li><a href="faaliyet-alanlari.html"><i class="fas fa-circle"></i> Faaliyet alanları</a></li>
+                            <li><a href="kurucu-uyeler.html"><i class="fas fa-circle"></i> Dernek Kurucu Üyeleri</a></li>
+                            <li><a href="kurullar.html"><i class="fas fa-circle"></i> Kurullar</a></li>
+                            <li><a href="tuzuk.html"><i class="fas fa-circle"></i> Tüzük</a></li>
+                            <li><a href="uygulayicilar.html"><i class="fas fa-circle"></i> Kinezyo bantlama uygulayıcıları</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Üyelik menü öğesi -->
+                    <li><a href="uyelik.html"><i class="fas fa-user-plus"></i> Üyelik</a></li>
+                    
+                    <!-- Eğitim açılır menü -->
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-book"></i> Eğitim <i class="fas fa-chevron-down"></i></a>
+                        <!-- Açılır menü içeriği -->
+                        <ul class="dropdown-menu">
+                            <li><a href="temel-egitimler.html"><i class="fas fa-circle"></i> Temel Eğitimler</a></li>
+                            <li><a href="ileri-egitimler.html"><i class="fas fa-circle"></i> İleri Seviye Eğitimler</a></li>
+                            <li><a href="pediatrik-egitimler.html"><i class="fas fa-circle"></i> Pediatrik Eğitimler</a></li>
+                            <li><a href="sporcu-egitimleri.html"><i class="fas fa-circle"></i> Sporcu Eğitimleri</a></li>
+                            <li><a href="online-egitimler.html"><i class="fas fa-circle"></i> Online Eğitimler</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Diğer menü öğeleri -->
+                    <li><a href="etkinlikler.html"><i class="fas fa-calendar-alt"></i> Etkinlikler</a></li>
+                    <li><a href="haberler.html"><i class="fas fa-newspaper"></i> Haberler</a></li>
+                    <li><a href="iletisim.html"><i class="fas fa-envelope"></i> İletişim</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobil menü düğmesi (sadece mobilde görünür) -->
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- HERO BÖLÜMÜ - Ana tanıtım ve çağrı bölümü -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Ana başlık -->
+                <h1>Profesyonel Kinezyolojik Bantlama Eğitimleri</h1>
+                <!-- Açıklama metni -->
+                <p>Türkiye'nin önde gelen kinezyo bantlama uzmanları ile bilimsel temelli eğitim programlarına katılın, mesleki becerilerinizi geliştirin.</p>
+                <!-- CTA (Call to Action) butonları -->
+                <div class="hero-buttons">
+                    <a href="egitimler.html" class="btn">Eğitimlere Katıl</a>
+                    <a href="uyelik.html" class="btn btn-secondary">Üye Ol</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ÖZELLİKLER BÖLÜMÜ - Derneğin avantajları -->
+    <section class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Neden Kinezyo Bantlama Derneği?</h2>
+                <p>Uluslararası standartlarda eğitimler ve profesyonel gelişim fırsatları sunuyoruz</p>
+            </div>
+            
+            <!-- Özellik kartları grid yapısı -->
+            <div class="features-grid">
+                <!-- Özellik 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Sertifikalı Eğitimler</h3>
+                    <p>Uluslararası geçerliliği olan sertifikalar ile mesleki gelişiminize katkı sağlıyoruz.</p>
+                </div>
+                
+                <!-- Özellik 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Uzman Eğitmen Kadrosu</h3>
+                    <p>Alanında uzman ve deneyimli eğitmenlerimizle en güncel bilgileri aktarıyoruz.</p>
+                </div>
+                
+                <!-- Özellik 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Pratik Uygulamalar</h3>
+                    <p>Teorik bilginin yanı sıra bol pratik imkanı ile becerilerinizi geliştiriyoruz.</p>
+                </div>
+                
+                <!-- Özellik 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Uluslararası Ağ</h3>
+                    <p>Dünya çapındaki kinezyo bantlama uzmanları ile iletişim ağına katılın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HAKKIMIZDA BÖLÜMÜ - Dernek tanıtımı -->
+    <section class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Biz Kimiz?</h2>
+                <p>Kinezyo Bantlama Derneği hakkında bilmeniz gerekenler</p>
+            </div>
+            
+            <div class="about-content">
+                <!-- Hakkımızda resmi -->
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Kinezyo Bantlama Uygulaması">
+                </div>
+                
+                <!-- Hakkımızda metin içeriği -->
+                <div class="about-text">
+                    <h2>Kinezyo Bantlama Derneği</h2>
+                    <p>Türkiye'de kinezyolojik bantlama alanında eğitim, araştırma ve mesleki gelişimi desteklemek amacıyla 2010 yılında kurulmuş bir dernektir.</p>
+                    <p>Derneğimiz, kinezyolojik bantlama tekniklerinin bilimsel temellere dayalı olarak uygulanmasını teşvik etmek, bu alanda çalışan sağlık profesyonellerinin eğitim ve gelişimlerini desteklemek, ulusal ve uluslararası düzeyde standartlar oluşturmak için çalışmaktadır.</p>
+                    
+                    <!-- Dernek özellikleri listesi -->
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Uzman Eğitmenler</h4>
+                                <p>Alanında deneyimli ve uzman eğitmen kadrosu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Bilimsel Yaklaşım</h4>
+                                <p>Kanıta dayalı uygulamalar ve teknikler</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Uluslararası İşbirlikleri</h4>
+                                <p>Dünya çapında 20'den fazla kurumla işbirliği</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Sürekli Gelişim</h4>
+                                <p>Mesleki gelişimi destekleyen programlar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- EĞİTİMLER BÖLÜMÜ - Kurs programları -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eğitim Programlarımız</h2>
+                <p>İhtiyaçlarınıza uygun farklı seviyelerde eğitim programlarımız</p>
+            </div>
+            
+            <!-- Kurs kartları grid yapısı -->
+            <div class="courses-grid">
+                <!-- Kurs 1 -->
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #1a6dcc, #00a896);"></div>
+                    <div class="course-content">
+                        <h3>Kinezyo Bantlama Temel Eğitimi</h3>
+                        <p>Kinezyolojik bantlamanın temel prensiplerini ve uygulama tekniklerini öğreneceksiniz.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Başlangıç</span>
+                        </div>
+                        <a href="temel-egitim.html" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <!-- Kurs 2 -->
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #00a896, #ff6b6b);"></div>
+                    <div class="course-content">
+                        <h3>İleri Seviye Kinezyo Bantlama</h3>
+                        <p>Kompleks vakalar için özel teknikler ve kombine uygulamaları içeren ileri seviye eğitim.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Orta-İleri</span>
+                        </div>
+                        <a href="ileri-egitim.html" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <!-- Kurs 3 -->
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #ff6b6b, #2c3e50);"></div>
+                    <div class="course-content">
+                        <h3>Pediatrik Kinezyo Bantlama</h3>
+                        <p>Çocuk ve bebeklerde kinezyolojik bantlama teknikleri ve özel uygulama yöntemleri.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Uzman</span>
+                        </div>
+                        <a href="pediatrik-egitim.html" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ETKİNLİKLER BÖLÜMÜ - Yaklaşan etkinlikler -->
+    <section class="section events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Yaklaşan Etkinlikler</h2>
+                <p>Katılabileceğiniz seminer, kurs ve kongreler</p>
+            </div>
+            
+            <!-- Etkinlik kartları grid yapısı -->
+            <div class="events-grid">
+                <!-- Etkinlik 1 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>15</span>
+                        <div>
+                            <h4>Ekim 2023</h4>
+                            <p>Cumartesi, 10:00-17:00</p>
+                        </div>
+                    </div>
+                    <h3>Kinezyo Bantlama Temel Kursu</h3>
+                    <p>İstanbul - Dernek Eğitim Salonu</p>
+                    <a href="kayit-ol.html" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+                
+                <!-- Etkinlik 2 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>28</span>
+                        <div>
+                            <h4>Kasım 2023</h4>
+                            <p>Pazar, 09:00-16:00</p>
+                        </div>
+                    </div>
+                    <h3>Sporcu Yaralanmalarında Bantlama Teknikleri</h3>
+                    <p>Ankara - Spor Hekimliği Merkezi</p>
+                    <a href="kayit-ol.html" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+                
+                <!-- Etkinlik 3 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>5</span>
+                        <div>
+                            <h4>Aralık 2023</h4>
+                            <p>Salı, 13:00-18:00</p>
+                        </div>
+                    </div>
+                    <h3>Uluslararası Kinezyoloji Kongresi</h3>
+                    <p>İzmir - Kongre Merkezi</p>
+                    <a href="kayit-ol.html" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER - Alt bilgi ve iletişim -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Kolon 1: Dernek tanıtımı -->
+                <div class="footer-col">
+                    <h3>Kinezyo Bantlama Derneği</h3>
+                    <p>Türkiye'de kinezyolojik bantlama alanında eğitim, araştırma ve mesleki gelişimi desteklemek amacıyla kurulmuş bir dernektir.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Kolon 2: Hızlı erişim linkleri -->
+                <div class="footer-col">
+                    <h3>Hızlı Erişim</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                        <li><a href="egitimler.html"><i class="fas fa-chevron-right"></i> Eğitimler</a></li>
+                        <li><a href="etkinlikler.html"><i class="fas fa-chevron-right"></i> Etkinlik Takvimi</a></li>
+                        <li><a href="haberler.html"><i class="fas fa-chevron-right"></i> Haberler</a></li>
+                        <li><a href="iletisim.html"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kolon 3: Eğitimler -->
+                <div class="footer-col">
+                    <h3>Eğitimler</h3>
+                    <ul class="footer-links">
+                        <li><a href="temel-egitimler.html"><i class="fas fa-chevron-right"></i> Temel Kinezyo Bantlama</a></li>
+                        <li><a href="ileri-egitimler.html"><i class="fas fa-chevron-right"></i> İleri Seviye Teknikler</a></li>
+                        <li><a href="sporcu-egitimleri.html"><i class="fas fa-chevron-right"></i> Sporcu Yaralanmaları</a></li>
+                        <li><a href="pediatrik-egitimler.html"><i class="fas fa-chevron-right"></i> Pediatrik Uygulamalar</a></li>
+                        <li><a href="lenfodem.html"><i class="fas fa-chevron-right"></i> Lenfödem ve Bantlama</a></li>
+                        <li><a href="online-egitimler.html"><i class="fas fa-chevron-right"></i> Online Eğitimler</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kolon 4: İletişim bilgileri -->
+                <div class="footer-col">
+                    <h3>İletişim</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Adres</strong>
+                                <p>Şişli, Halaskargazi Cd. No:140,<br>34371 Şişli/İstanbul</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telefon</strong>
+                                <p>0212 123 45 67</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>E-posta</strong>
+                                <p>info@kinezyodernegi.org</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Telif hakkı bölümü -->
+            <div class="copyright">
+                <p>&copy; 2023 Kinezyo Bantlama Derneği. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // MOBİL MENÜ TOGGLE - Mobil cihazlarda menüyü açıp kapama
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            // 'nav ul' elementine 'active' class'ını ekleyip çıkarır
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // SMOOTH SCROLLING - Sayfa içi linklerde yumuşak kaydırma
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault(); // Varsayılan link davranışını engelle
+                // Hedef elemente yumuşak kaydırma
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // MOBİL AÇILIR MENÜ - Mobil cihazlarda açılır menü işlevselliği
+        const dropdownToggles = document.querySelectorAll('.dropdown > a');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                // Sadece mobil cihazlarda çalışsın (768px altı)
+                if (window.innerWidth < 768) {
+                    e.preventDefault(); // Varsayılan link davranışını engelle
+                    const dropdownMenu = this.nextElementSibling;
+                    // Açılır menüyü göster/gizle
+                    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

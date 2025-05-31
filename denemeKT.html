@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinezyo Bantlama Derneği | Profesyonel Kinezyolojik Bantlama Eğitimleri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a6dcc;
+            --secondary: #00a896;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --accent: #ff6b6b;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #1559b3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #008d7d;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .logo-text span {
+            font-size: 14px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+        
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 700px;
+            padding-left: 5%;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .slider-btn {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .slider-btn:hover {
+            background: rgba(255,255,255,0.5);
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(26, 109, 204, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Events Section */
+        .events {
+            background: linear-gradient(135deg, rgba(26, 109, 204, 0.9) 0%, rgba(0, 168, 150, 0.9) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .events .section-title h2,
+        .events .section-title p {
+            color: white;
+        }
+        
+        .events .section-title::after {
+            background: white;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .event-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .event-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .event-date span {
+            background: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .event-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-list i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 4px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .slide-content h1 {
+                font-size: 40px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .slide-content h1 {
+                font-size: 32px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: 20px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .slide-content {
+                padding: 20px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 0212 123 45 67</span>
+                <span><i class="fas fa-envelope"></i> info@kinezyodernegi.org</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-plus-square fa-2x" style="color: var(--primary);"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Kinezyo Bantlama Derneği</h1>
+                    <span>Profesyonel Kinezyolojik Bantlama Eğitimleri</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Eğitimler</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Etkinlikler</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> Haberler</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> İletişim</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="slide-content">
+                    <h1>Profesyonel Kinezyolojik Bantlama Eğitimleri</h1>
+                    <p>Türkiye'nin önde gelen kinezyo bantlama uzmanları ile bilimsel temelli eğitim programlarına katılın, mesleki becerilerinizi geliştirin.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Eğitimlere Katıl</a>
+                        <a href="#" class="btn btn-secondary">Üye Ol</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599058917765-a780eda07b3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');">
+                <div class="slide-content">
+                    <h1>Uluslararası Sertifikalı Eğitimler</h1>
+                    <p>Dünya standartlarında eğitimlerimizle kariyerinize yeni bir yön verin, uluslararası geçerliliği olan sertifikalar kazanın.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Sertifika Programları</a>
+                        <a href="#" class="btn btn-secondary">Eğitmenlerimiz</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="slide-content">
+                    <h1>Sporcu Performansı ve Yaralanmalar</h1>
+                    <p>Sporcuların performansını artırmak ve yaralanmaları önlemek için geliştirilmiş özel bantlama teknikleri.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Sporcu Programları</a>
+                        <a href="#" class="btn btn-secondary">Tekniklerimiz</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="slide-content">
+                    <h1>Pediatrik Kinezyo Bantlama</h1>
+                    <p>Çocuk ve bebekler için özel olarak geliştirilmiş bantlama teknikleri ile daha sağlıklı bir gelecek.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Pediatrik Programlar</a>
+                        <a href="#" class="btn btn-secondary">Uzmanlık Eğitimleri</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <div class="slider-btn prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-btn next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        
+        <!-- Slider Dots -->
+        <div class="slider-controls">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Neden Kinezyo Bantlama Derneği?</h2>
+                <p>Uluslararası standartlarda eğitimler ve profesyonel gelişim fırsatları sunuyoruz</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Sertifikalı Eğitimler</h3>
+                    <p>Uluslararası geçerliliği olan sertifikalar ile mesleki gelişiminize katkı sağlıyoruz.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Uzman Eğitmen Kadrosu</h3>
+                    <p>Alanında uzman ve deneyimli eğitmenlerimizle en güncel bilgileri aktarıyoruz.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Pratik Uygulamalar</h3>
+                    <p>Teorik bilginin yanı sıra bol pratik imkanı ile becerilerinizi geliştiriyoruz.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Uluslararası Ağ</h3>
+                    <p>Dünya çapındaki kinezyo bantlama uzmanları ile iletişim ağına katılın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Courses Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Eğitim Programlarımız</h2>
+                <p>İhtiyaçlarınıza uygun farklı seviyelerde eğitim programlarımız</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #1a6dcc, #00a896);"></div>
+                    <div class="course-content">
+                        <h3>Kinezyo Bantlama Temel Eğitimi</h3>
+                        <p>Kinezyolojik bantlamanın temel prensiplerini ve uygulama tekniklerini öğreneceksiniz.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Başlangıç</span>
+                        </div>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #00a896, #ff6b6b);"></div>
+                    <div class="course-content">
+                        <h3>İleri Seviye Kinezyo Bantlama</h3>
+                        <p>Kompleks vakalar için özel teknikler ve kombine uygulamaları içeren ileri seviye eğitim.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 3 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Orta-İleri</span>
+                        </div>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-img" style="background: linear-gradient(45deg, #ff6b6b, #2c3e50);"></div>
+                    <div class="course-content">
+                        <h3>Pediatrik Kinezyo Bantlama</h3>
+                        <p>Çocuk ve bebeklerde kinezyolojik bantlama teknikleri ve özel uygulama yöntemleri.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 2 Gün</span>
+                            <span><i class="fas fa-user-graduate"></i> Uzman</span>
+                        </div>
+                        <a href="#" class="btn">Detaylı Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Events Section -->
+    <section class="section events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Yaklaşan Etkinlikler</h2>
+                <p>Katılabileceğiniz seminer, kurs ve kongreler</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>15</span>
+                        <div>
+                            <h4>Ekim 2023</h4>
+                            <p>Cumartesi, 10:00-17:00</p>
+                        </div>
+                    </div>
+                    <h3>Kinezyo Bantlama Temel Kursu</h3>
+                    <p>İstanbul - Dernek Eğitim Salonu</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>28</span>
+                        <div>
+                            <h4>Kasım 2023</h4>
+                            <p>Pazar, 09:00-16:00</p>
+                        </div>
+                    </div>
+                    <h3>Sporcu Yaralanmalarında Bantlama Teknikleri</h3>
+                    <p>Ankara - Spor Hekimliği Merkezi</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>5</span>
+                        <div>
+                            <h4>Aralık 2023</h4>
+                            <p>Salı, 13:00-18:00</p>
+                        </div>
+                    </div>
+                    <h3>Uluslararası Kinezyoloji Kongresi</h3>
+                    <p>İzmir - Kongre Merkezi</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Kayıt Ol</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Kinezyo Bantlama Derneği</h3>
+                    <p>Türkiye'de kinezyolojik bantlama alanında eğitim, araştırma ve mesleki gelişimi desteklemek amacıyla kurulmuş bir dernektir.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Hızlı Erişim</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Hakkımızda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Eğitimler</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Etkinlik Takvimi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Haberler</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Eğitimler</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Temel Kinezyo Bantlama</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> İleri Seviye Teknikler</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sporcu Yaralanmaları</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pediatrik Uygulamalar</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Lenfödem ve Bantlama</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Online Eğitimler</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>İletişim</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Adres</strong>
+                                <p>Şişli, Halaskargazi Cd. No:140,<br>34371 Şişli/İstanbul</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telefon</strong>
+                                <p>0212 123 45 67</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>E-posta</strong>
+                                <p>info@kinezyodernegi.org</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Kinezyo Bantlama Derneği. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+        let slideInterval;
+        
+        // Show slide function
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Next slide function
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Start auto slide
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            clearInterval(slideInterval);
+            startSlideShow();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            clearInterval(slideInterval);
+            startSlideShow();
+        });
+        
+        // Dot click event
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                clearInterval(slideInterval);
+                startSlideShow();
+            });
+        });
+        
+        // Start the slideshow
+        startSlideShow();
+    </script>
+</body>
+</html>

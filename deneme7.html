@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Kinezyo Bantlama Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* GENEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #5bc0de;
+            --accent: #5bc0de;
+            --light: #f0f8ff;
+            --dark: #2c3e50;
+            --menu-bg: #e6f7ff;
+            --menu-text: #2c3e50;
+            --menu-hover: #5bc0de;
+            --content-bg: rgba(255, 255, 255, 0.9);
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 4px 6px rgba(91, 192, 222, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(91, 192, 222, 0.4);
+        }
+        
+        /* ÜST MENÜ STİLLERİ - AÇIK BEBEK MAVİSİ */
+        .navbar {
+            background-color: var(--menu-bg);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #d1ecf1;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            color: var(--menu-text);
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span:first-child {
+            color: var(--secondary);
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span:last-child {
+            font-size: 16px;
+            color: #5a7a8c;
+            font-weight: 500;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 0 8px;
+        }
+        
+        .nav-link {
+            color: var(--menu-text);
+            padding: 10px 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link i {
+            margin-left: 5px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+        
+        .nav-link:hover {
+            background: rgba(91, 192, 222, 0.1);
+            color: var(--menu-hover);
+        }
+        
+        /* Açılır menü stilleri */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 1px solid #e0f0f7;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            border-bottom: 1px solid #f0f8ff;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--secondary);
+            color: white;
+            padding-left: 25px;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobil menü butonu */
+        .menu-toggle {
+            display: none;
+            color: var(--menu-text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* SAYFA BANNERI */
+        .page-banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(91, 192, 222, 0.3); /* Saydam mavi */
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .banner-content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* İÇERİK ALANI */
+        .content-section {
+            background: var(--content-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .content-section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #5a6a7a;
+            font-size: 1.1rem;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .content-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e6f2f5;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(91, 192, 222, 0.15);
+        }
+        
+        .content-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 992px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--menu-bg);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.05);
+                width: 80%;
+                margin: 10px auto;
+                display: none;
+            }
+            
+            .dropdown-item {
+                color: var(--menu-text);
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .page-banner {
+                height: 300px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+            
+            .content-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .logo-text span:first-child {
+                font-size: 18px;
+            }
+            
+            .page-banner {
+                height: 250px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+CiAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzM0OThkYiIgc3Ryb2tlPSIjMmMzZTUwIiBzdHJva2Utd2lkdGg9IjMiLz4KICAgIDxwYXRoIGQ9Ik0zMCAzNSBMNzAgMzUgTTMwIDUwIEw3MCA1MCBNMzAgNjUgTDcwIDY1IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8dGV4dCB4PSI1MCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+REVSTkVBPC90ZXh0Pgo8L3N2Zz4=" alt="Kinezyo Bantlama Derneği Logo" class="logo">
+                
+                <!-- Logo Yazıları -->
+                <div class="logo-text">
+                    <span>KINEZYO BANTLAMA</span>
+                    <span>DERNEĞİ</span>
+                </div>
+            </div>
+            
+            <!-- Mobil Menü Toggle -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Ana Menü -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Ana Sayfa</a>
+                </li>
+                
+                <!-- Hakkımızda Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html" class="dropdown-item">Biz Kimiz?</a></li>
+                        <li><a href="faaliyet-alanlari.html" class="dropdown-item">Faaliyet Alanları</a></li>
+                        <li><a href="kurucu-uyeler.html" class="dropdown-item">Dernek Kurucu Üyeleri</a></li>
+                        <li><a href="kurullar.html" class="dropdown-item">Kurullar</a></li>
+                        <li><a href="tuzuk.html" class="dropdown-item">Tüzük</a></li>
+                        <li><a href="uygulayicilar.html" class="dropdown-item">Kinezyo Bantlama Uygulayıcıları</a></li>
+                        <li><a href="bant-nedir.html" class="dropdown-item">Bant ve Bantlama Nedir?</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Eğitimler Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Eğitimler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="temel-egitim.html" class="dropdown-item">Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html" class="dropdown-item">İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html" class="dropdown-item">Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html" class="dropdown-item">Online Eğitimler</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="etkinlikler.html" class="nav-link">Etkinlikler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="haberler.html" class="nav-link">Haberler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SAYFA BANNERI - SAYFAYA ÖZEL -->
+    <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1353&q=80');">
+        <div class="banner-content">
+            <h1>Hakkımızda</h1>
+            <p>Kinezyo Bantlama Derneği ve çalışmalarımız hakkında bilgiler</p>
+            
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li>Hakkımızda</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- İÇERİK ALANI - SAYFAYA ÖZEL -->
+    <div class="container">
+        <section class="content-section">
+            <h2>Biz Kimiz?</h2>
+            
+            <p>Kinezyo Bantlama Derneği, 2005 yılında kinezyolojik bantlama alanında uzmanlaşmış sağlık profesyonelleri tarafından kurulmuştur. Amacımız, bu alanda çalışan profesyonellerin bilgi ve becerilerini geliştirmek, mesleki standartları yükseltmek ve kinezyolojik bantlamanın doğru ve etkili kullanımını yaygınlaştırmaktır.</p>
+            
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Kinezyo Bantlama Uygulaması">
+            
+            <h2>Faaliyet Alanlarımız</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Eğitim Programları</h3>
+                    <p>Temel, ileri ve uzmanlık düzeyinde kinezyolojik bantlama eğitimleri düzenliyoruz.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3><i class="fas fa-users"></i> Uzman Ağı</h3>
+                    <p>Türkiye genelinde sertifikalı uygulayıcılardan oluşan bir ağ kurduk.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3><i class="fas fa-book"></i> Araştırma ve Yayın</h3>
+                    <p>Kinezyolojik bantlama alanında bilimsel araştırmalar yürütüyor ve yayınlar hazırlıyoruz.</p>
+                </div>
+            </div>
+            
+            <h2>Kurucu Üyelerimiz</h2>
+            
+            <ul>
+                <li>Prof. Dr. Ahmet Yılmaz - Fizyoterapist</li>
+                <li>Doç. Dr. Ayşe Kaya - Spor Hekimi</li>
+                <li>Uzm. Fzt. Mehmet Demir - Ortopedi Uzmanı</li>
+                <li>Dr. Zeynep Öztürk - Fizik Tedavi Uzmanı</li>
+            </ul>
+            
+            <p>Derneğimiz, alanında uzman eğitmenlerle birlikte bilimsel temelli eğitim programları düzenlemekte, ulusal ve uluslararası seminer, konferans ve workshoplar organize etmektedir. Üyelerimize sürekli eğitim ve gelişim fırsatları sunarak mesleki gelişimlerini desteklemekteyiz.</p>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kinezyo Bantlama Derneği</h3>
+                    <p>Profesyonel kinezyolojik bantlama eğitimleri ve uygulamaları konusunda Türkiye'nin önde gelen kuruluşu.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+                        <li><a href="egitimler.html"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+                        <li><a href="etkinlikler.html"><i class="fas fa-calendar-alt"></i> Etkinlikler</a></li>
+                        <li><a href="haberler.html"><i class="fas fa-newspaper"></i> Haberler</a></li>
+                        <li><a href="iletisim.html"><i class="fas fa-envelope"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Eğitimler</h3>
+                    <ul class="footer-links">
+                        <li><a href="temel-egitim.html"><i class="fas fa-book"></i> Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html"><i class="fas fa-book-open"></i> İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html"><i class="fas fa-book-reader"></i> Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html"><i class="fas fa-laptop"></i> Online Eğitimler</a></li>
+                        <li><a href="seminerler.html"><i class="fas fa-chalkboard-teacher"></i> Seminer ve Workshoplar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Şişli, İstanbul, Türkiye</li>
+                        <li><i class="fas fa-phone"></i> +90 212 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@kinezyobantlama.org</li>
+                        <li><i class="fas fa-clock"></i> Pazartesi-Cuma: 09:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Kinezyo Bantlama Derneği. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript kodu - Mobil menü ve diğer interaktif öğeler için
+        
+        // Mobil Menü Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Açılır menüler için mobil uyumluluk
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    const dropdown = this.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
