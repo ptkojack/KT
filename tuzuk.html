@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz Kimiz? - Kinezyo Bantlama Derneği</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* GENEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #78cdff;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --menu-bg: #e6f7ff;
+            --menu-text: #2c3e50;
+            --menu-hover: #5bc0de;
+            --content-bg: rgba(255, 255, 255, 0.95);
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ÜST MENÜ STİLLERİ - AÇIK BEBEK MAVİSİ */
+        .navbar {
+            background-color: #78cdff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #78cdff;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            color: var(--menu-text);
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span:first-child {
+            color: var(--secondary);
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span:last-child {
+            font-size: 16px;
+            color: #5a7a8c;
+            font-weight: 500;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 0 8px;
+        }
+        
+        .nav-link {
+            color: white;
+            padding: 10px 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link i {
+            margin-left: 5px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+        
+        .nav-link:hover {
+            background: rgba(91, 192, 222, 0.1);
+            color: var(--menu-hover);
+        }
+        
+        /* Açılır menü stilleri */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 1px solid #e0f0f7;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            border-bottom: 1px solid #f0f8ff;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--secondary);
+            color: white;
+            padding-left: 25px;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobil menü butonu */
+        .menu-toggle {
+            display: none;
+            color: var(--menu-text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* SAYFA BANNERI */
+        .page-banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(91, 192, 222, 0.3); /* Saydam mavi */
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .banner-content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* İÇERİK ALANI - BİZ KİMİZ */
+        .content-section {
+            background: var(--content-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .content-section p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: #5a6a7a;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #e6f7ff, #d1f0ff);
+            padding: 25px;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 10px 10px 0;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .mission-box, .vision-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-box h3, .vision-box h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        
+        .values-list {
+            margin: 40px 0;
+        }
+        
+        .values-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .values-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 992px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--menu-bg);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.05);
+                width: 80%;
+                margin: 10px auto;
+                display: none;
+            }
+            
+            .dropdown-item {
+                color: var(--menu-text);
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .page-banner {
+                height: 300px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+            
+            .content-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .logo-text span:first-child {
+                font-size: 18px;
+            }
+            
+            .page-banner {
+                height: 250px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-container">
+                <!-- Logo Resmi -->
+                <img src="KT\logo (KT).png" alt="Kinezyo Bantlama Derneği Logo" class="logo">
+                
+              
+                </div>
+            </div>
+            
+            <!-- Mobil Menü Toggle -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Ana Menü -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Ana Sayfa</a>
+                </li>
+                
+                <!-- Hakkımızda Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html" class="dropdown-item">Biz Kimiz?</a></li>
+                        <li><a href="faaliyet-alanlari.html" class="dropdown-item">Faaliyet Alanları</a></li>
+                        <li><a href="kurucu-uyeler.html" class="dropdown-item">Dernek Kurucu Üyeleri</a></li>
+                        <li><a href="kurullar.html" class="dropdown-item">Kurullar</a></li>
+                        <li><a href="tuzuk.html" class="dropdown-item">Tüzük</a></li>
+                        <li><a href="uygulayicilar.html" class="dropdown-item">Kinezyo Bantlama Uygulayıcıları</a></li>
+                        <li><a href="bant-nedir.html" class="dropdown-item">Bant ve Bantlama Nedir?</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Eğitimler Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Eğitimler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="temel-egitim.html" class="dropdown-item">Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html" class="dropdown-item">İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html" class="dropdown-item">Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html" class="dropdown-item">Online Eğitimler</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="etkinlikler.html" class="nav-link">Etkinlikler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="haberler.html" class="nav-link">Haberler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SAYFA BANNERI - BİZ KİMİZ? -->
+    <section class="page-banner" style="background-image: url('KT/bg6.jpg');">
+        <div class="banner-content">
+            <h1>Faaliyet Alanları</h1>
+            <p>Kinezyo Bantlama Derneği ve çalışmalarımız hakkında bilgiler</p>
+            
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                
+                <li>Faaliyet Alanları</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- İÇERİK ALANI - BİZ KİMİZ? -->
+    <div class="container">
+        <section class="content-section">
+            <h2>Kinezyo Bantlama Derneği</h2>
+            
+            <body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">KBD</div>
+        </div>
+        <h1>KİNEZYO BANTLAMA DERNEĞİ</h1>
+        <div class="subtitle">DERNEK TÜZÜĞÜ</div>
+    </header>
+    
+    <div class="container">
+        <aside class="toc">
+            <h2>İçindekiler</h2>
+            <ul>
+                <li><a href="#bolum1">BÖLÜM I - Derneğin Adı ve Merkezi</a></li>
+                <li><a href="#bolum2">BÖLÜM II - Derneğin Amacı ve Çalışma Konuları</a></li>
+                <li><a href="#bolum3">BÖLÜM III - Üye Olma Hakkı ve Üyelik İşlemleri</a></li>
+                <li><a href="#bolum4">BÖLÜM IV - Üyelikten Çıkma ve Çıkarılma</a></li>
+                <li><a href="#bolum5">BÖLÜM V - Derneğin Organları</a></li>
+                <li><a href="#bolum6">BÖLÜM VI - Genel Kurul</a></li>
+                <li><a href="#bolum7">BÖLÜM VII - Yönetim ve Denetim Kurulları</a></li>
+                <li><a href="#bolum8">BÖLÜM VIII - Derneğin Gelir Kaynakları</a></li>
+                <li><a href="#bolum9">BÖLÜM IX - Defter Tutma Esasları</a></li>
+                <li><a href="#bolum10">BÖLÜM X - Gelir ve Gider İşlemleri</a></li>
+                <li><a href="#bolum11">BÖLÜM XI - Beyanname ve Bildirimler</a></li>
+                <li><a href="#bolum12">BÖLÜM XII - Diğer Hükümler</a></li>
+                <li><a href="#gecici">GEÇİCİ MADDE</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <section id="bolum1" class="section">
+                <h2 class="section-title">BÖLÜM I - DERNEĞİN ADI VE MERKEZİ</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 1</h3>
+                    <p>Derneğin adı "Kinezyo Bantlama Derneği" dir.</p>
+                    <p>Derneğin merkezi Ankara'dır. Şubesi açılmayacaktır.</p>
+                </div>
+            </section>
+            
+            <section id="bolum2" class="section">
+                <h2 class="section-title">BÖLÜM II - DERNEĞİN AMACI VE BU AMACI GERÇEKLEŞTİRMEK İÇİN DERNEKÇE SÜRDÜRÜLECEK ÇALIŞMA KONULARI VE BİÇİMLERİ İLE FAALİYET ALANI</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 2</h3>
+                    <p>Dernek Fizyoterapistlik Mesleğinin özelleşme alanlarından biri olan Kinezyo Bantlama'nın faaliyetlerinin etkinleştirilmesi ve geliştirilmesini sağlamak ve bu konuda çalışmalar yapan kişi ve kuruluşlara destek vermek amacıyla kurulmuştur.</p>
+                    
+                    <h4>Dernekçe Sürdürülecek Çalışma Konuları ve Biçimleri</h4>
+                    <ul>
+                        <li>Kinezyo Bantlama'nın toplum için yararının genişletilmesi</li>
+                        <li>Yaralanmaları önlemek ve tedavi etmek amacıyla Kinezyo Bantlama uygulamasının kullanımının artırılması</li>
+                        <li>Yaralanan bireyin tedavisini gerçekleştirerek en kısa sürede günlük yaşama dönüşü sağlayan ve ayrıca bireyin kondisyonunu koruyup artıran fizyoterapistlerin yetişmesine katkıda bulunmak</li>
+                        <li>Dernek üyelerinin meslek odası oluşturmak için yeter sayıya ulaşması halinde, oda olmaya yönelik çalışmaları yürütmek</li>
+                        <li>Meslek etik prensipleri belirlenmesi ve duyurulmasına yardımcı olmak üzere çalışmalarda bulunmak</li>
+                        <li>Dernek çalışmalarını ilgili kişi, kurum ve kuruluşlara duyurmak</li>
+                        <li>Mesleki alanda yapılan yenilikleri takip etmek ve dernek üyelerine duyurmak</li>
+                        <li>Bantlama alanında çalışacak fizyoterapistlerin yetiştirilmesi amacıyla eğitim kursları planlamak ve uygulamak</li>
+                        <li>Mesleki uygulamadaki eksiklikleri gidermek amacıyla hizmet içi eğitim seminerleri düzenlemek</li>
+                        <li>Sporcu, antrenör, idareci eğitiminin sağlanması amacıyla spor klüpleri bünyesinde kurs ve seminerler düzenlemek</li>
+                        <li>Mesleki alanda yapılan yenilikleri izlemek amacıyla yurtdışı yayınları takip etmek, diğer derneklerle bağlantı kurarak bu derneklerle işbirliği yapmak</li>
+                        <li>Dernek yayını olan broşür, kitap, bülten vb. ile üyeler arası iletişim ve bilgi alışverişini kurmak ve devam ettirmek</li>
+                        <li>Gerekli görülen yerlerde temsilcilikler açmak</li>
+                        <li>Banka ve benzeri kurumlarda mevduatlarını değerlendirmek</li>
+                        <li>Ücretli ve/veya gönüllü ücretsiz personel istihdam etmek, vakıf ve sandık kurmak</li>
+                        <li>Gerekli izinler alınmak şartıyla yardım toplama faaliyetlerinde bulunmak ve yurt içinden ve yurt dışından bağış kabul etmek</li>
+                        <li>Ülkedeki fizyoterapi kuruluşları, spor kuruluşları, Spor Bakanlığı, Milli Olimpiyat Komitesi ve Gençlik Spor Genel Müdürlüğü ile organik bağ içinde olmak</li>
+                    </ul>
+                    
+                    <h4>Derneğin Faaliyet Alanı</h4>
+                    <p>Dernek mesleki ve sosyal alanda yurt içinde ve yurt dışında faaliyet gösterir.</p>
+                </div>
+            </section>
+            
+            <section id="bolum3" class="section">
+                <h2 class="section-title">BÖLÜM III - ÜYE OLMA HAKKI VE ÜYELİK İŞLEMLERİ</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 3</h3>
+                    <p>Fiil ehliyetine sahip bulunan ve derneğin amaç ve ilkelerini benimseyerek bu doğrultuda çalışmayı kabul eden ve Mevzuatın öngördüğü koşullarını taşıyan her gerçek ve tüzel kişi bu derneğe üye olma hakkına sahiptir. Ancak, yabancı gerçek kişilerin üye olabilmesi için Türkiye'de yerleşme hakkına sahip olması da gerekir. Onursal üyelik için bu koşul aranmaz.</p>
+                    
+                    <p>Derneğe maddi ve manevi bakımdan önemli destek sağlamış bulunanlar yönetim kurulu kararı ile onursal üye olarak kabul edilebilir.</p>
+                    
+                    <h4>Derneğin Üyelik Koşulları</h4>
+                    <ul>
+                        <li>Hiçbir şekilde adli sabıkası bulunmayan</li>
+                        <li>Üniversitelerin dört yıllık lisans eğitimi veren Fizik Tedavi ve Rehabilitasyon Yüksekokul ve/veya Bölümlerinden birinden, tıp fakültesinden ya da Üniversitelerin dört yıllık lisans eğitimi veren Beden Eğitimi ve Spor Fakültelerinin Spor ve Sağlık bölümlerinden mezun herkes derneğe üye olabilir.</li>
+                        <li>Fizyoterapist, doktor ya da spor uzmanı ünvanı alan herkes derneğe üye olabilir.</li>
+                        <li>Yönetim Kuruluna seçim hakkı elde edebilmek için en az bir yıllık çalışma tecrübesine sahip olmak</li>
+                        <li>Aidat ödemelerini düzenli yapmak</li>
+                        <li>Genel kurul toplantılarına katılmak</li>
+                    </ul>
+                    
+                    <p>Dernek başkanlığına yazılı olarak yapılacak üyelik başvurusu, dernek yönetim kurulunca en çok otuz gün içinde üyeliğe kabul veya isteğin reddi şeklinde karara bağlanır ve sonuç yazıyla başvuru sahibine bildirilir. Başvurusu kabul edilen üye, bu amaçla tutulacak deftere kaydedilir.</p>
+                    
+                    <h4>Üyelik Türleri</h4>
+                    <ul>
+                        <li><strong>Asil Üye:</strong> Müracaatları üzerine üyeliğe kabul edilen üyeler</li>
+                        <li><strong>Onursal Üyelik:</strong> Derneğin amaç ve faaliyetine katkıda bulunanlar arasından uygun görüleceklere yönetim kurulu tarafından verilen bir payedir. Onursal üyeler genel kurula katılıp görüş bildirebilirler, ancak oy kullanamazlar, dernek organlarına seçilemezler.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="bolum4" class="section">
+                <h2 class="section-title">BÖLÜM IV - ÜYELİKTEN ÇIKMA VE ÇIKARILMA</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 4 - Üyelikten Çıkma</h3>
+                    <p>Her üye yazılı olarak bildirmek kaydıyla, dernekten çıkma hakkına sahiptir. Üyenin istifa dilekçesi yönetim kuruluna ulaştığı anda çıkış işlemleri sonuçlanmış sayılır. Üyelikten ayrılma, üyenin derneğe olan birikmiş borçlarını sona erdirmez.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 5 - Üyelikten Çıkarılma</h3>
+                    <p>Dernek üyeliğinden çıkarılmayı gerektiren haller:</p>
+                    <ul>
+                        <li>Dernek tüzüğüne aykırı davranışlarda bulunmak</li>
+                        <li>Derneğin belirlediği etik kurallara uyulmadığının tespitinde</li>
+                        <li>Verilen görevlerden sürekli kaçınmak</li>
+                        <li>Herhangi bir yüz kızartıcı suçtan ötürü mahkumiyetin olması durumunda</li>
+                        <li>Derneğin genel kurul toplantılarına bir yılda birden fazla mazeretsiz olarak katılmama halinde</li>
+                        <li>İkazlara rağmen aidat ödemesinin 3 yıl aksatılması durumunda</li>
+                        <li>İstifa halinde</li>
+                        <li>Kişinin akli dengesini yitirmesi halinde</li>
+                        <li>Dernek organlarınca verilen kararlara uymamak</li>
+                        <li>Üye olma şartlarını kaybetmiş olmak</li>
+                    </ul>
+                    
+                    <p>Yukarıda sayılan durumlardan birinin tespiti halinde yönetim kurulu kararı ile üyelikten çıkarılır. Çıkarılma kararı, yönetim kurulunca karar tarihinden itibaren 15 gün içinde ilgilisine yazılı olarak tebliğ edilir.</p>
+                    
+                    <p>Üyelikten çıkarılanlar, çıkarılma kararının tebliğini yönetim kuruluna dilekçe vermek suretiyle çıkarılma kararına itiraz edebilirler, bu itiraz ilk genel kurul toplantısı gündemine alınır ve karara bağlanır. Bu karar nihaidir.</p>
+                    
+                    <p>Dernekten çıkan veya çıkarılanlar, üye kayıt defterinden silinir ve dernek malvarlığında hak iddia edemez.</p>
+                </div>
+            </section>
+            
+            <section id="bolum5" class="section">
+                <h2 class="section-title">BÖLÜM V - DERNEĞİN ORGANLARI</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 6</h3>
+                    <p>Derneğin organları aşağıda gösterilmiştir.</p>
+                    <ul>
+                        <li>Genel Kurul</li>
+                        <li>Yönetim Kurulu</li>
+                        <li>Denetleme Kurulu</li>
+                    </ul>
+                    <p>Dernek Yönetimi gerekli gördüğü durumlarda çalıştay, komisyon veya komiteler oluşturabilir.</p>
+                </div>
+            </section>
+            
+            <section id="bolum6" class="section">
+                <h2 class="section-title">BÖLÜM VI - GENEL KURUL</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 7 - Genel Kurulun Kuruluş Şekli, Toplanma Zamanı, Çağrı ve Toplantı Usulü</h3>
+                    <p>Genel kurul, derneğin en yetkili karar organı olup; derneğe kayıtlı üyelerden oluşur.</p>
+                    
+                    <h4>Genel Kurul Toplantıları</h4>
+                    <ul>
+                        <li>Bu tüzükte belli edilen zamanda olağan</li>
+                        <li>Yönetim veya denetim kurulunun gerekli gördüğü hallerde veya dernek üyelerinden beşte birinin yazılı isteği üzerine otuz gün içinde olağanüstü toplanır</li>
+                        <li>Olağan genel kurul, 3 yılda bir kez Ekim ayları içerisinde yönetim kurulunca belirlenecek gün, yer ve saatte toplanır</li>
+                    </ul>
+                    
+                    <h4>Çağrı Usulü</h4>
+                    <p>Yönetim kurulu, dernek tüzüğüne göre genel kurula katılma hakkı bulunan üyelerin listesini düzenler. Genel kurula katılma hakkı bulunan üyeler, en az onbeş gün önceden, toplantının günü, saati, yeri ve gündemi en az bir gazetede veya derneğin internet sayfasında ilan edilmek, yazılı olarak bildirilmek, üyenin bildirdiği elektronik posta adresine ya da iletişim numarasına mesaj gönderilmek veya mahalli yayın araçları kullanılmak suretiyle toplantıya çağrılır.</p>
+                    
+                    <h4>Toplantı Usulü</h4>
+                    <p>Genel kurul, katılma hakkı bulunan üyelerin salt çoğunluğunun, tüzük değişikliği ve derneğin feshi hallerinde ise üçte ikisinin katılımıyla toplanır; çoğunluğun sağlanamaması sebebiyle toplantının ertelenmesi durumunda ikinci toplantıda çoğunluk aranmaz. Ancak, bu toplantıya katılan üye sayısı, yönetim ve denetim kurulları üye tam sayısının iki katından az olamaz.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 8 - Genel Kurulun Oy Kullanma ve Karar Alma Usul ve Şekilleri</h3>
+                    <p>Genel kurulda, aksine karar alınmamışsa, oylamalar açık olarak yapılır. Açık oylamada, genel kurul başkanının belirteceği yöntem uygulanır.</p>
+                    <p>Gizli oylama yapılacak olması durumunda ise, toplantı başkanı tarafından mühürlenmiş kağıtlar veya oy pusulaları üyeler tarafından gereği yapıldıktan sonra içi boş bir kaba atılır ve oy vermenin bitiminden sonra açık dökümü yapılarak sonuç belirlenir.</p>
+                    <p>Genel kurul kararları, toplantıya katılan üyelerin salt çoğunluğuyla alınır. Şu kadar ki, tüzük değişikliği ve derneğin feshi kararları, ancak toplantıya katılan üyelerin üçte iki çoğunluğuyla alınabilir.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 9 - Genel Kurulun Görev ve Yetkileri</h3>
+                    <p>Aşağıda yazılı hususlar genel kurulca görüşülüp karara bağlanır.</p>
+                    <ul>
+                        <li>Dernek organlarının seçilmesi</li>
+                        <li>Dernek tüzüğünün değiştirilmesi</li>
+                        <li>Yönetim ve denetleme kurulları raporlarının görüşülmesi, yönetim kurulunun ibra edilmesi</li>
+                        <li>Yönetim kurulunca hazırlanan bütçenin görüşülüp, aynen veya değiştirilerek kabul edilmesi</li>
+                        <li>Dernek için gerekli taşınmaz malların satın alınması veya mevcut taşınmaz malların satılması hususunda yönetim kuruluna yetki verilmesi</li>
+                        <li>Derneğin federasyona katılması ve ayrılmasının kararlaştırılması</li>
+                        <li>Derneğin uluslararası faaliyette bulunması, yurt dışındaki dernek ve kuruluşlara üye olarak katılması veya ayrılması</li>
+                        <li>Derneğin vakıf kurması</li>
+                        <li>Derneğin fesih edilmesi</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="bolum7" class="section">
+                <h2 class="section-title">BÖLÜM VII - YÖNETİM VE DENETİM KURULLARI</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 10 - Yönetim Kurulunun Teşkili, Görev ve Yetkileri</h3>
+                    <p>Yönetim kurulu beş asil ve beş yedek üye olarak genel kurulca gizli oyla 3 yılda bir seçilir.</p>
+                    <p>Yönetim kurulu, seçimden sonraki ilk toplantısında bir kararla görev bölüşümü yaparak başkan, başkan yardımcısı, sekreter, sayman ve üye'yi belirler.</p>
+                    
+                    <h4>Yönetim Kurulunun Görev ve Yetkileri</h4>
+                    <ul>
+                        <li>Derneği temsil etmek veya bu hususta kendi üyelerinden bir veya birkaçına yetki vermek</li>
+                        <li>Gelir ve gider hesaplarına ilişkin işlemleri yapmak ve gelecek döneme ait bütçeyi hazırlayarak genel kurula sunmak</li>
+                        <li>Derneğin çalışmaları ile ilgili yönetmelikleri hazırlayarak genel kurul onayına sunmak</li>
+                        <li>Genel kurulun verdiği yetki ile taşınmaz mal satın almak, derneğe ait taşınır ve taşınmaz malları satmak</li>
+                        <li>Gerekli görülen yerlerde temsilcilik açılmasını sağlamak</li>
+                        <li>Genel kurulda alınan kararları uygulamak</li>
+                        <li>Her faaliyet yılı sonunda derneğin işletme hesabı tablosu veya bilanço ve gelir tablosu ile yönetim kurulu çalışmalarını açıklayan raporunu düzenlemek</li>
+                        <li>Derneğe üye alınması veya üyelikten çıkarılma hususlarında karar vermek</li>
+                    </ul>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 11 - Denetim Kurulunun Teşkili Görev ve Yetkileri</h3>
+                    <p>Denetim kurulu üç asil ve üç yedek üye olmak üzere genel kurulca seçilir.</p>
+                    
+                    <h4>Denetim Kurulunun Görev ve Yetkileri</h4>
+                    <p>Denetim kurulu; derneğin, tüzüğünde gösterilen amaç ve amacın gerçekleştirilmesi için sürdürüleceği belirtilen çalışma konuları doğrultusunda faaliyet gösterip göstermediğini, defter, hesap ve kayıtların mevzuata ve dernek tüzüğüne uygun olarak tutulup tutulmadığını, dernek tüzüğünde tespit edilen esas ve usullere göre ve bir yılı geçmeyen aralıklarla denetler ve denetim sonuçlarını bir rapor halinde yönetim kuruluna ve toplandığında genel kurula sunar.</p>
+                </div>
+            </section>
+            
+            <section id="bolum8" class="section">
+                <h2 class="section-title">BÖLÜM VIII - DERNEĞİN GELİR KAYNAKLARI</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 12</h3>
+                    <p>Derneğin gelir kaynakları aşağıda sayılmıştır.</p>
+                    <ul>
+                        <li><strong>Üye Aidatı:</strong> Üyelerden giriş ödentisi olarak 10 TL, aylık olarak ta 1 TL aidat alınır. Bu miktarları artırmaya veya eksiltmeye genel kurul yetkilidir.</li>
+                        <li><strong>Bağış ve Yardımlar:</strong> Gerçek ve tüzel kişilerin kendi isteği ile derneğe yaptıkları bağış ve yardımlar.</li>
+                        <li><strong>Faaliyet Gelirleri:</strong> Dernek tarafından tertiplenen çay ve yemekli toplantı, gezi ve eğlence, temsil, konser, spor yarışması ve konferans gibi faaliyetlerden sağlanan gelirler</li>
+                        <li><strong>Mal Varlığı Gelirleri:</strong> Derneğin mal varlığından elde edilen gelirler</li>
+                        <li><strong>Yardım Toplama:</strong> Yardım toplama hakkındaki mevzuat hükümlerine uygun olarak toplanacak bağış ve yardımlar</li>
+                        <li><strong>Ticari Faaliyetler:</strong> Derneğin, amacını gerçekleştirmek için ihtiyaç duyduğu geliri temin etmek amacıyla giriştiği ticari faaliyetlerden elde edilen kazançlar</li>
+                        <li><strong>Diğer Gelirler:</strong> Kanunlardan ve mevzuattan doğan gelirler</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="bolum9" class="section">
+                <h2 class="section-title">BÖLÜM IX - DEFTER TUTMA ESAS VE USULLERİ VE TUTULACAK DEFTERLER</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 13</h3>
+                    <h4>Defter Tutma Esasları</h4>
+                    <p>Dernekte, işletme hesabı esasına göre defter tutulur. Ancak, yıllık brüt gelirin Dernekler Yönetmeliğinin 31. Maddesinde belirtilen haddi aşması durumunda takip eden hesap döneminden başlayarak bilanço esasına göre defter tutulur.</p>
+                    
+                    <h4>Tutulacak Defterler</h4>
+                    <p>Dernekte, aşağıda yazılı defterler tutulur:</p>
+                    <ul>
+                        <li>Karar Defteri</li>
+                        <li>Üye Kayıt Defteri</li>
+                        <li>Evrak Kayıt Defteri</li>
+                        <li>İşletme Hesabı Defteri</li>
+                        <li>Alındı Belgesi Kayıt Defteri (zorunlu değil)</li>
+                        <li>Demirbaş Defteri (zorunlu değil)</li>
+                    </ul>
+                    
+                    <h4>Defterlerin Tasdiki</h4>
+                    <p>Dernekte, tutulması zorunlu olan defterler (Büyük Defter hariç), kullanmaya başlamadan önce il dernekler müdürlüğüne veya notere tasdik ettirilir.</p>
+                </div>
+            </section>
+            
+            <section id="bolum10" class="section">
+                <h2 class="section-title">BÖLÜM X - GELİR VE GİDER İŞLEMLERİ</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 14</h3>
+                    <h4>Gelir ve Gider Belgeleri</h4>
+                    <p>Dernek gelirleri, "Alındı Belgesi" ile tahsil edilir. Dernek gelirlerinin bankalar aracılığı ile tahsili halinde banka tarafından düzenlenen dekont veya hesap özeti gibi belgeler alındı belgesi yerine geçer.</p>
+                    <p>Dernek giderleri ise fatura, perakende satış fişi, serbest meslek makbuzu gibi harcama belgeleri ile yapılır.</p>
+                    
+                    <h4>Alındı Belgeleri</h4>
+                    <p>Dernek gelirlerinin tahsilinde kullanılacak "Alındı Belgeleri" yönetim kurulu kararıyla, matbaaya bastırılır.</p>
+                    
+                    <h4>Yetki Belgesi</h4>
+                    <p>Yönetim kurulu asıl üyeleri hariç, dernek adına gelir tahsil edecek kişi veya kişiler, yetki süresi de belirtilmek suretiyle, yönetim kurulu kararı ile tespit edilir.</p>
+                    
+                    <h4>Gelir ve Gider Belgelerinin Saklama Süresi</h4>
+                    <p>Defterler hariç olmak üzere, dernek tarafından kullanılan alındı belgeleri, harcama belgeleri ve diğer belgeler özel kanunlarda belirtilen süreler saklı kalmak üzere, kaydedildikleri defterlerdeki sayı ve tarih düzenine uygun olarak 5 yıl süreyle saklanır.</p>
+                </div>
+            </section>
+            
+            <section id="bolum11" class="section">
+                <h2 class="section-title">BÖLÜM XI - BEYANNAME VERİLMESİ VE BİLDİRİM YÜKÜMLÜLÜĞÜ</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 15 - Beyanname Verilmesi</h3>
+                    <p>Derneğin, bir önceki yıla ait faaliyetleri ile gelir ve gider işlemlerinin yıl sonu itibarıyla sonuçlarına ilişkin "Dernek Beyannamesi" dernek yönetim kurulu tarafından doldurularak, her takvim yılının ilk dört ayı içinde dernek başkanı tarafından mahallin mülki idare amirliğine verilir.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 16 - Bildirim Yükümlülüğü</h3>
+                    <p>Mülki amirliğe yapılacak bildirimler:</p>
+                    <ul>
+                        <li>Genel Kurul Sonuç Bildirimi</li>
+                        <li>Taşınmazların Bildirilmesi</li>
+                        <li>Yurtdışından Yardım Alma Bildirimi</li>
+                        <li>Değişikliklerin Bildirilmesi (yerleşim yeri, organ değişiklikleri, tüzük değişiklikleri)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="bolum12" class="section">
+                <h2 class="section-title">BÖLÜM XII - DİĞER HÜKÜMLER</h2>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 17 - Temsilcilik Açma</h3>
+                    <p>Dernek, gerekli gördüğü yerlerde dernek faaliyetlerini yürütmek amacıyla yönetim kurulu kararıyla temsilcilik açabilir.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 18 - Derneğin İç Denetimi</h3>
+                    <p>Dernekte genel kurul, yönetim kurulu veya denetim kurulu tarafından iç denetim yapılabileceği gibi, bağımsız denetim kuruluşlarına da denetim yaptırılabilir.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 19 - Derneğin Borçlanma Usulleri</h3>
+                    <p>Dernek amacını gerçekleştirmek ve faaliyetlerini yürütebilmek için ihtiyaç duyulması halinde yönetim kurulu kararı ile borçlanma yapabilir.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 20 - Tüzüğün Ne Şekilde Değiştirileceği</h3>
+                    <p>Tüzük değişikliği genel kurul kararı ile yapılabilir. Genel kurulda tüzük değişikliği yapılabilmesi için genel kurula katılma hakkı bulunan üyelerin 2/3 çoğunluğu aranır.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 21 - Derneğin Feshi ve Mal Varlığının Tasfiye Şekli</h3>
+                    <p>Genel kurul, her zaman derneğin feshine karar verebilir. Genel kurulda fesih konusunun görüşülebilmesi için genel kurula katılma hakkı bulunan üyelerin 2/3 çoğunluğu aranır.</p>
+                    <h4>Tasfiye İşlemleri</h4>
+                    <p>Genel kurulca fesih kararı verildiğinde, derneğin para, mal ve haklarının tasfiyesi son yönetim kurulu üyelerinden oluşan tasfiye kurulunca yapılır.</p>
+                </div>
+                
+                <div class="article">
+                    <h3 class="article-title">Madde 22 - Hüküm Eksikliği</h3>
+                    <p>Dernek tüzüğünde hüküm bulunmayan durumlarda, Dernekler Kanunu bu konuda hüküm bulunmayan durumlarda da Türk Medeni Kanunu ve Dernekler Yönetmeliği hükümleri uygulanır.</p>
+                </div>
+            </section>
+            
+            <section id="gecici" class="section">
+                <h2 class="section-title">GEÇİCİ MADDE</h2>
+                
+                <div class="article provisional">
+                    <h3 class="article-title">Geçici Madde 1</h3>
+                    <p>İlk genel kurulda dernek organları oluşturulana kadar, derneği temsil edecek ve dernekle ilgili iş ve işlemleri yürütecek olan geçici yönetim kurulu üyeleri aşağıda belirtilmiştir.</p>
+                    
+                    <h4>Geçici Yönetim Kurulu Üyeleri</h4>
+                    <ul>
+                        <li><strong>BAŞKAN:</strong> Prof.Dr. Gül Baltacı</li>
+                        <li><strong>BAŞKAN YARDIMCISI:</strong> Yrd.Doç.Dr. Nihan Özünlü Pekyavaş</li>
+                        <li><strong>GENEL SEKRETER:</strong> Dr. Fzt. Gülcan Harput</li>
+                        <li><strong>SAYMAN:</strong> Dr. Fzt. Elif Turgut</li>
+                        <li><strong>ÜYE:</strong> Dr. Fzt. Seher Özyürek</li>
+                        <li><strong>ÜYE:</strong> Dr. Fzt. Nihan Kafa</li>
+                        <li><strong>ÜYE:</strong> Fzt. Şehnaz Yüce</li>
+                    </ul>
+                    
+                    <p>Bu tüzük 22 (Yirmiiki) madde ve 1 (Bir) geçici maddeden ibarettir.</p>
+                </div>
+            </section>
+        </main>
+    </div>            
+            <div class="highlight-text">
+                <p>Derneğimiz, alanında uzman eğitmenlerle birlikte bilimsel temelli eğitim programları düzenlemekte, ulusal ve uluslararası seminer, konferans ve workshoplar organize etmektedir. Üyelerimize sürekli eğitim ve gelişim fırsatları sunarak mesleki gelişimlerini desteklemekteyiz.</p>
+            </div>
+            
+            <div class="mission-vision">
+                <div class="mission-box">
+                    <h3><i class="fas fa-bullseye"></i> Misyonumuz</h3>
+                    <p>Kinezyolojik bantlama alanında uluslararası standartlarda eğitimler vermek, bilimsel araştırmaları desteklemek ve mesleki etik kuralların uygulanmasını sağlamaktır. Üyelerimizin sürekli gelişimine katkıda bulunarak, sağlık hizmetlerinin kalitesini artırmayı hedefliyoruz.</p>
+                </div>
+                
+                <div class="vision-box">
+                    <h3><i class="fas fa-eye"></i> Vizyonumuz</h3>
+                    <p>Türkiye'de kinezyolojik bantlama uygulamalarının gelişimine öncülük eden, dünya çapında tanınan ve saygın bir dernek olmaktır. Uluslararası platformlarda ülkemizi temsil etmek ve küresel standartlarda hizmet vermek en büyük hedefimizdir.</p>
+                </div>
+            </div>
+            
+            <h2>Temel Değerlerimiz</h2>
+            
+            <ul class="values-list">
+                <li><strong>Bilimsellik:</strong> Tüm faaliyetlerimizi bilimsel temellere dayandırıyor, kanıta dayalı uygulamaları destekliyoruz.</li>
+                <li><strong>Profesyonellik:</strong> Mesleki standartların en üst seviyede uygulanmasını hedefliyor, etik kurallara bağlı kalıyoruz.</li>
+                <li><strong>Gelişim:</strong> Üyelerimizin sürekli gelişimini destekliyor, eğitim ve sertifika programları sunuyoruz.</li>
+                <li><strong>İşbirliği:</strong> Ulusal ve uluslararası kuruluşlarla işbirliği yapıyor, multidisipliner çalışmaları teşvik ediyoruz.</li>
+                <li><strong>Toplumsal Fayda:</strong> Toplum sağlığını iyileştirmeyi amaçlıyor, erişilebilir ve kaliteli hizmet sunuyoruz.</li>
+                <li><strong>Yenilikçilik:</strong> Alanımızdaki yenilikleri takip ediyor, gelişmeleri üyelerimize ve topluma aktarıyoruz.</li>
+            </ul>
+            
+            <h2>Faaliyet Alanlarımız</h2>
+            
+            <p>Derneğimiz, kinezyolojik bantlama alanında çeşitli faaliyetler yürütmektedir:</p>
+            
+            <ul class="values-list">
+                <li>Profesyonel eğitim programları ve sertifikasyon</li>
+                <li>Ulusal ve uluslararası kongre, seminer ve workshoplar</li>
+                <li>Bilimsel araştırmaların desteklenmesi ve yayınlanması</li>
+                <li>Mesleki gelişim programları ve sürekli eğitim</li>
+                <li>Kamuoyu bilinçlendirme çalışmaları</li>
+                <li>Uluslararası kuruluşlarla işbirliği ve ortak projeler</li>
+                <li>Mesleki etik kuralların belirlenmesi ve denetimi</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kinezyo Bantlama Derneği</h3>
+                    <p>Profesyonel kinezyolojik bantlama eğitimleri ve uygulamaları konusunda Türkiye'nin önde gelen kuruluşu.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+                        <li><a href="egitimler.html"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+                        <li><a href="etkinlikler.html"><i class="fas fa-calendar-alt"></i> Etkinlikler</a></li>
+                        <li><a href="haberler.html"><i class="fas fa-newspaper"></i> Haberler</a></li>
+                        <li><a href="iletisim.html"><i class="fas fa-envelope"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Eğitimler</h3>
+                    <ul class="footer-links">
+                        <li><a href="temel-egitim.html"><i class="fas fa-book"></i> Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html"><i class="fas fa-book-open"></i> İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html"><i class="fas fa-book-reader"></i> Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html"><i class="fas fa-laptop"></i> Online Eğitimler</a></li>
+                        <li><a href="seminerler.html"><i class="fas fa-chalkboard-teacher"></i> Seminer ve Workshoplar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i>  İZMİR CAD. IHLAMUR SOK. 8/16 KIZILAY / ANKARA TÜRKİYE</li>
+                        <li><i class="fas fa-phone"></i> +90 507 153 50 28</li>
+                        <li><i class="fas fa-envelope"></i> bantlamakinezyo@gmail.com</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Kinezyo Bantlama Derneği. Tüm hakları saklıdır. </p>
+                <p> Designed by Umut Ziya Koçak </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript kodu - Mobil menü ve diğer interaktif öğeler için
+        
+        // Mobil Menü Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Açılır menüler için mobil uyumluluk
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    const dropdown = this.querySelector('.dropdown-menu');
+                    if (dropdown) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
