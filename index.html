@@ -644,7 +644,8 @@
                             class="btn btn-primary kongre-link" 
                             target="_blank"
                             rel="noopener noreferrer"
-                            data-external>
+                            data-external
+                            onclick="window.open(this.href, '_blank'); return false;">
                             KONGRE SAYFASI
                         </a>
                     </div>
@@ -825,17 +826,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // Mobil Menü Toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Carousel Fonksiyonları
+    // Carousel fonksiyonları
     const slides = document.querySelectorAll('.carousel-slide');
     const indicators = document.querySelectorAll('.indicator');
     let currentSlide = 0;
@@ -852,21 +843,23 @@
         indicators[currentSlide].classList.add('active');
     }
     
+    // Göstergeler için event listener
     indicators.forEach(indicator => {
         indicator.addEventListener('click', function() {
             goToSlide(parseInt(this.getAttribute('data-slide')));
         });
     });
     
-    // HARİCİ LİNK ÇÖZÜMÜ - EN KRİTİK KISIM
+    // HARİCİ LİNK ÖZEL İŞLEMİ
     document.querySelectorAll('a[data-external]').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.stopImmediatePropagation(); // Tüm diğer dinleyicileri durdur
-            window.open(this.href, '_blank'); // Kesin çözüm için window.open
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            window.open(this.href, '_blank');
         });
     });
     
-    // Carousel otomatik geçiş
+    // Otomatik geçişi başlat
     const carouselInterval = setInterval(nextSlide, 5000);
     
     // İlk slaytı aktif et
