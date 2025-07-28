@@ -823,66 +823,55 @@
     </footer>
 
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    // Mobil Menü Toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener('click', function() {
+        // JavaScript kodu - Mobil menü, carousel ve diğer interaktif öğeler için
+        
+        // Mobil Menü Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenu.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-    }
-    
-    // Carousel Fonksiyonları
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    let currentSlide = 0;
-    
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
         
-        currentSlide = (currentSlide + 1) % slides.length;
+        // Carousel Fonksiyonları
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
         
-        slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
-    }
-    
-    // Slayt değiştirme fonksiyonu
-    function goToSlide(index) {
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
+        // Sonraki slayta geçiş fonksiyonu
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
         
-        currentSlide = index;
-        
-        slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
-    }
-    
-    // Göstergelere tıklama
-    indicators.forEach(indicator => {
-        indicator.addEventListener('click', function(e) {
-            e.preventDefault();
-            const slideIndex = parseInt(this.getAttribute('data-slide'));
-            goToSlide(slideIndex);
+        // Göstergelere tıklama ile slayt değiştirme
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                
+                currentSlide = slideIndex;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+            });
         });
-    });
-    
-    // Harici linkler için özel işlem
-    document.querySelectorAll('a.external-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.stopPropagation(); // Diğer event listener'ları engelle
-            window.open(this.href, '_blank'); // Yeni sekmede aç
+        
+        // Otomatik slayt geçişi
+        setInterval(nextSlide, 5000);
+        
+        // Sayfa yüklendiğinde ilk slaytı aktif et
+        window.addEventListener('load', () => {
+            slides[0].classList.add('active');
+            indicators[0].classList.add('active');
         });
-    });
-    
-    // Otomatik slayt geçişi
-    setInterval(nextSlide, 5000);
-    
-    // İlk slaytı aktif et
-    goToSlide(0);
-});
     </script>
 </body>
 </html>
