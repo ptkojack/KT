@@ -641,10 +641,11 @@
                     <p>Kinesio Taping Association International Presents: 33rd Kinesio Medical Taping Research Symposium in partnership with Istanbul Atlas University.</p>
                     <div class="btn-group">
                         <a href="https://kinesiotaping.com/research-symposium/" 
-   class="btn btn-primary" 
-   onclick="window.open(this.href, '_blank'); return false;">
-   KONGRE SAYFASI
-</a>
+                            class="btn btn-primary external-link" 
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            KONGRE SAYFASI
+                        </a>
                     </div>
                 </div>
             </div>
@@ -822,62 +823,66 @@
     </footer>
 
     <script>
-        // JavaScript kodu - Mobil menü, carousel ve diğer interaktif öğeler için
-        
-        // Mobil Menü Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
-        
-        mobileMenu.addEventListener('click', () => {
+       document.addEventListener('DOMContentLoaded', function() {
+    // Mobil Menü Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (mobileMenu && navMenu) {
+        mobileMenu.addEventListener('click', function() {
             navMenu.classList.toggle('active');
         });
+    }
+    
+    // Carousel Fonksiyonları
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        indicators[currentSlide].classList.remove('active');
         
-        // Carousel Fonksiyonları
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.indicator');
-        let currentSlide = 0;
+        currentSlide = (currentSlide + 1) % slides.length;
         
-        // Sonraki slayta geçiş fonksiyonu
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            indicators[currentSlide].classList.remove('active');
-            
-            currentSlide = (currentSlide + 1) % slides.length;
-            
-            slides[currentSlide].classList.add('active');
-            indicators[currentSlide].classList.add('active');
-        }
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+    }
+    
+    // Slayt değiştirme fonksiyonu
+    function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        indicators[currentSlide].classList.remove('active');
         
-        // Göstergelere tıklama ile slayt değiştirme
-        indicators.forEach(indicator => {
-            indicator.addEventListener('click', function() {
-                const slideIndex = parseInt(this.getAttribute('data-slide'));
-                
-                slides[currentSlide].classList.remove('active');
-                indicators[currentSlide].classList.remove('active');
-                
-                currentSlide = slideIndex;
-                
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
-                document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Harici linkleri engelleme
-        if (this.href.includes('kinesiotaping.com')) {
-            return; // Varsayılan davranışı koru
-        }
-        e.preventDefault();
-            });
+        currentSlide = index;
+        
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+    }
+    
+    // Göstergelere tıklama
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', function(e) {
+            e.preventDefault();
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            goToSlide(slideIndex);
         });
-        
-        // Otomatik slayt geçişi
-        setInterval(nextSlide, 5000);
-        
-        // Sayfa yüklendiğinde ilk slaytı aktif et
-        window.addEventListener('load', () => {
-            slides[0].classList.add('active');
-            indicators[0].classList.add('active');
+    });
+    
+    // Harici linkler için özel işlem
+    document.querySelectorAll('a.external-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.stopPropagation(); // Diğer event listener'ları engelle
+            window.open(this.href, '_blank'); // Yeni sekmede aç
         });
+    });
+    
+    // Otomatik slayt geçişi
+    setInterval(nextSlide, 5000);
+    
+    // İlk slaytı aktif et
+    goToSlide(0);
+});
     </script>
 </body>
 </html>
