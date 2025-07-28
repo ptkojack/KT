@@ -860,6 +860,13 @@
                 
                 slides[currentSlide].classList.add('active');
                 indicators[currentSlide].classList.add('active');
+                document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Harici linkleri engelleme
+        if (this.href.includes('kinesiotaping.com')) {
+            return; // Varsayılan davranışı koru
+        }
+        e.preventDefault();
             });
         });
         
