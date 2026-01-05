@@ -6,7 +6,20 @@
     <title>Kinezyo Bantlama Derneği - Profesyonel Eğitimler</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* GENEL STİLLER */
+        
+                /* Butonun tıklanabilir olması için pozisyonlama ve z-index ekliyoruz */
+        .slide-content .btn-group {
+            position: relative; /* z-index'in çalışması için gereklidir */
+            z-index: 10; /* Diğer katmanların üzerine çıkarır */
+        }
+
+        /* Eğer sadece buton etkileniyorsa */
+        .kongre-link {
+            position: relative;
+            z-index: 10;
+            pointer-events: auto; /* Tıklamayı zorla aktifleştir */
+        }
+/* GENEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -568,6 +581,31 @@
                 font-size: 18px;
             }
         }
+        /* Tüm slaytları varsayılan olarak tıklanmaz yap */
+        .carousel-slide {
+            /* Görünürlüğü (opacity) değiştiren bir transition varsa bunu bozmaz */
+            pointer-events: none; 
+            
+            /* Eğer fade efekti kullanıyorsanız ve display:none kullanmıyorsanız bu şarttır */
+            visibility: hidden; 
+            opacity: 0;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            
+            /* Pozisyonlama standart ise */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Sadece ACTIVE olan slaytı tıklanabilir ve görünür yap */
+        .carousel-slide.active {
+            pointer-events: auto; /* Tıklamayı aç */
+            visibility: visible;  /* Görünür yap */
+            opacity: 1;           /* Tam matlık */
+            z-index: 2;           /* Diğerlerinin üstüne çıkar */
+        }
     </style>
 </head>
 <body>
@@ -640,14 +678,14 @@
                     <h1>33rd Kinesio Medical Taping Research Symposium</h1>
                     <p>Kinesio Taping Association International Presents: 33rd Kinesio Medical Taping Research Symposium in partnership with Istanbul Atlas University.</p>
                     <div class="btn-group">
-                        <a href="kongre-sayfasi.html" class="btn btn-primary">Detaylı Bilgi</a>
-                            <!--class="btn btn-primary kongre-link" 
+                        <a href="kongre-sayfasi.html" 
+                            class="btn btn-primary kongre-link" 
                             target="_blank"
                             rel="noopener noreferrer"
                             data-external
                             >
                             KONGRE SAYFASI
-                        </a>-->
+                        </a>
                     </div>
                 </div>
             </div>
