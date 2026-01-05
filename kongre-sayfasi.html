@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33rd Kinesio Medical Taping Research Symposium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* GENEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #78cdff;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --menu-bg: #e6f7ff;
+            --menu-text: #2c3e50;
+            --menu-hover: #5bc0de;
+            --content-bg: rgba(255, 255, 255, 0.95);
+        }
+        
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ÜST MENÜ STİLLERİ - AÇIK BEBEK MAVİSİ */
+        .navbar {
+            background-color: #78cdff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #78cdff;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            color: var(--menu-text);
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span:first-child {
+            color: var(--secondary);
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span:last-child {
+            font-size: 16px;
+            color: #5a7a8c;
+            font-weight: 500;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin: 0 8px;
+        }
+        
+        .nav-link {
+            color: white;
+            padding: 10px 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link i {
+            margin-left: 5px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+        
+        .nav-link:hover {
+            background: rgba(91, 192, 222, 0.1);
+            color: var(--menu-hover);
+        }
+        
+        /* Açılır menü stilleri */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: 1px solid #e0f0f7;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            border-bottom: 1px solid #f0f8ff;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--secondary);
+            color: white;
+            padding-left: 25px;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobil menü butonu */
+        .menu-toggle {
+            display: none;
+            color: var(--menu-text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* SAYFA BANNERI */
+        .page-banner {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(91, 192, 222, 0.3); /* Saydam mavi */
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+        
+        .banner-content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* İÇERİK ALANI - BİZ KİMİZ */
+        .content-section {
+            background: var(--content-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .content-section p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            color: #5a6a7a;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, #e6f7ff, #d1f0ff);
+            padding: 25px;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 10px 10px 0;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .mission-box, .vision-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-box h3, .vision-box h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        
+        .values-list {
+            margin: 40px 0;
+        }
+        
+        .values-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .values-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 992px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 10px 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.05);
+                width: 80%;
+                margin: 10px auto;
+                display: none;
+            }
+            
+            .dropdown-item {
+                color: var(--menu-text);
+            }
+            
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .page-banner {
+                height: 300px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 1.2rem;
+            }
+            
+            .content-section {
+                padding: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .logo-text span:first-child {
+                font-size: 18px;
+            }
+            
+            .page-banner {
+                height: 250px;
+            }
+            
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ÜST MENÜ -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-container">
+                <!-- Logo Resmi -->
+                <img src="KT\logo (KT).png" alt="Kinezyo Bantlama Derneği Logo" class="logo">
+                
+              
+                </div>
+            </div>
+            
+            <!-- Mobil Menü Toggle -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Ana Menü -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Ana Sayfa</a>
+                </li>
+                
+                <!-- Hakkımızda Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle">Hakkımızda <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="biz-kimiz.html" class="dropdown-item">Biz Kimiz?</a></li>
+                        <li><a href="faaliyet-alanlari.html" class="dropdown-item">Faaliyet Alanları</a></li>
+                        <li><a href="kurucu-uyeler.html" class="dropdown-item">Dernek Kurucu Üyeleri</a></li>
+                        <li><a href="kurullar.html" class="dropdown-item">Kurullar</a></li>
+                        <li><a href="tuzuk.html" class="dropdown-item">Tüzük</a></li>
+                        <li><a href="uygulayicilar.html" class="dropdown-item">Kinezyo Bantlama Uygulayıcıları</a></li>
+                        <li><a href="bant-nedir.html" class="dropdown-item">Bant ve Bantlama Nedir?</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Eğitimler Açılır Menü -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Eğitimler <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="temel-egitim.html" class="dropdown-item">Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html" class="dropdown-item">İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html" class="dropdown-item">Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html" class="dropdown-item">Online Eğitimler</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="etkinlikler.html" class="nav-link">Etkinlikler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="haberler.html" class="nav-link">Haberler</a>
+                </li>
+                <li class="nav-item">
+                    <a href="iletisim.html" class="nav-link">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SAYFA BANNERI - BİZ KİMİZ? -->
+    <section class="page-banner" style="background-image: url('KT/bg6.jpg');">
+        <div class="banner-content">
+            <h1>33rd Kinesio Medical Taping Research Symposium</h1>
+            <p>33rd Kinesio Medical Taping Research Symposium hakkında bilgiler</p>
+            
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                
+                <li>33rd Kinesio Medical Taping Research Symposium</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- İÇERİK ALANI - BİZ KİMİZ? -->
+    <div class="container">
+        <section class="content-section">
+            <h2>Kinezyo Bantlama Derneği</h2>
+            
+                <!-- KURUCU ÜYELER BÖLÜMÜ -->
+    <div class="container founding-members">
+        <div class="section-title">
+            <h2>33rd Kinesio Medical Taping Research Symposium</h2>
+            <p>Derneğimizin kuruluşunda emeği geçen, bilgi ve deneyimleriyle bize yol gösteren değerli kurucu üyelerimiz</p>
+        </div>
+        
+        <div class="members-container">
+            <!-- Üye 1 -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="about-image">
+                    <img src="image: url('KT\gul-baltaci.jpg');">
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">BAŞKAN</div>
+                        <h3 class="member-name">Prof. Dr. Gül BALTACI</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Özel Ankara Güven Hastanesi</p>
+                    <p><strong>Bölüm:</strong> Fizik Tedavi ve Rehabilitasyon</p>
+                    <p><strong>Adres:</strong> Paris Cad No. 58, 06550 Kavaklıdere/ANKARA</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03024572431">0302 4572431</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:ygul.baltacig@mail.com">ygul.baltacig@mail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+            
+            <!-- Üye 2 -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">BAŞKAN YARDIMCISI</div>
+                        <h3 class="member-name">Yrd. Doç. Dr. Nihan ÖZÜNLÜ PEKYAVAŞ</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Başkent Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
+                    <p><strong>Adres:</strong> Bağlıca Kampüsü Eskişehir Yolu 20 km Etimesgut 06810 ANKARA</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03022466666">0302 2466666/1633</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:nihan_2002@hotmail.com">nihan_2002@hotmail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+            
+            <!-- Üye 3 (Örnek) -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">GENEL SEKRETER</div>
+                        <h3 class="member-name">Dr. Fzt. Gülcan HARPUT</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Hacettepe Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
+                    <p><strong>Adres:</strong> Sıhhiye, 06100 Ankara</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03123051010">0312 305 25 25</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:aktasgulcan@gmail.com">aktasgulcan@gmail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+
+            <!-- Üye 4 (Örnek) -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">SAYMAN</div>
+                        <h3 class="member-name">Dr. Fzt. Elif TURGUT</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Hacettepe Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
+                    <p><strong>Adres:</strong> Sıhhiye, 06100 Ankara</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03123051010">0312 305 25 25</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:elif.turgut.pt@gmail.com">elif.turgut.pt@gmail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+
+            <!-- Üye 5 (Örnek) -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">ÜYE</div>
+                        <h3 class="member-name">Dr. Fzt. Nihan KAFA</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Gazi Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Bölümüı</p>
+                    <p><strong>Adres:</strong> Emniyet Mahallesi Muammer Yaşar Bostancı Caddesi No.16 Beşevler-ANKARA</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03123051010">0312 216 26 50</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:fztnihankafa@gmail.com">fztnihankafa@gmail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+
+            <!-- Üye 6 (Örnek) -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">ÜYE</div>
+                        <h3 class="member-name">Dr. Fzt. Seher ÖZYÜREK</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> Dokuz Eylül Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Fizik Tedavi ve Rehabilitasyon Yüksekokulu</p>
+                    <p><strong>Adres:</strong> Mithatpaşa Caddesi No:56/15 Balçova 35340 - İZMİR</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03123051010">0232 412 49 31</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:seherozyurek@gmail.com">seherozyurek@gmail.com</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+            
+            <!-- Üye 7 (Örnek) -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-title">ÜYE</div>
+                        <h3 class="member-name">Fzt. Şehnaz YÜCE</h3>
+                    </div>
+                </div>
+                
+                <div class="member-details">
+                    <p><strong>Görev Yeri:</strong> </p>
+                    <p><strong>Bölüm:</strong> </p>
+                    <p><strong>Adres:</strong> EÇiftehavuzlar Mahallesi Cemil Topuzlu Caddesi No. 46 Kadıköy-İSTANBUL</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Tel: <a href="tel:03122166060"></a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-posta: <a href="mailto:yucesehnaz@yahoo.com.tr">yucesehnaz@yahoo.com.tr</a></span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cv-button">
+                    Özgeçmiş (CV) <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+            
+            <div class="highlight-text">
+                <p>Derneğimiz, alanında uzman eğitmenlerle birlikte bilimsel temelli eğitim programları düzenlemekte, ulusal ve uluslararası seminer, konferans ve workshoplar organize etmektedir. Üyelerimize sürekli eğitim ve gelişim fırsatları sunarak mesleki gelişimlerini desteklemekteyiz.</p>
+            </div>
+            
+            <div class="mission-vision">
+                <div class="mission-box">
+                    <h3><i class="fas fa-bullseye"></i> Misyonumuz</h3>
+                    <p>Kinezyo bantlama alanında uluslararası standartlarda eğitimler vermek, bilimsel araştırmaları desteklemek ve mesleki etik kuralların uygulanmasını sağlamaktır. Üyelerimizin sürekli gelişimine katkıda bulunarak, sağlık hizmetlerinin kalitesini artırmayı hedefliyoruz.</p>
+                </div>
+                
+                <div class="vision-box">
+                    <h3><i class="fas fa-eye"></i> Vizyonumuz</h3>
+                    <p>Türkiye'de kinezyol bantlama uygulamalarının gelişimine öncülük eden, dünya çapında tanınan ve saygın bir dernek olmaktır. Uluslararası platformlarda ülkemizi temsil etmek ve küresel standartlarda hizmet vermek en büyük hedefimizdir.</p>
+                </div>
+            </div>
+            
+            <h2>Temel Değerlerimiz</h2>
+            
+            <ul class="values-list">
+                <li><strong>Bilimsellik:</strong> Tüm faaliyetlerimizi bilimsel temellere dayandırıyor, kanıta dayalı uygulamaları destekliyoruz.</li>
+                <li><strong>Profesyonellik:</strong> Mesleki standartların en üst seviyede uygulanmasını hedefliyor, etik kurallara bağlı kalıyoruz.</li>
+                <li><strong>Gelişim:</strong> Üyelerimizin sürekli gelişimini destekliyor, eğitim ve sertifika programları sunuyoruz.</li>
+                <li><strong>İşbirliği:</strong> Ulusal ve uluslararası kuruluşlarla işbirliği yapıyor, multidisipliner çalışmaları teşvik ediyoruz.</li>
+                <li><strong>Toplumsal Fayda:</strong> Toplum sağlığını iyileştirmeyi amaçlıyor, erişilebilir ve kaliteli hizmet sunuyoruz.</li>
+                <li><strong>Yenilikçilik:</strong> Alanımızdaki yenilikleri takip ediyor, gelişmeleri üyelerimize ve topluma aktarıyoruz.</li>
+            </ul>
+            
+            <h2>Faaliyet Alanlarımız</h2>
+            
+            <p>Derneğimiz, kinezyo bantlama alanında çeşitli faaliyetler yürütmektedir:</p>
+            
+            <ul class="values-list">
+                <li>Profesyonel eğitim programları ve sertifikasyon</li>
+                <li>Ulusal ve uluslararası kongre, seminer ve workshoplar</li>
+                <li>Bilimsel araştırmaların desteklenmesi ve yayınlanması</li>
+                <li>Mesleki gelişim programları ve sürekli eğitim</li>
+                <li>Kamuoyu bilinçlendirme çalışmaları</li>
+                <li>Uluslararası kuruluşlarla işbirliği ve ortak projeler</li>
+                <li>Mesleki etik kuralların belirlenmesi ve denetimi</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kinezyo Bantlama Derneği</h3>
+                    <p>Profesyonel kinezyo bantlama eğitimleri ve uygulamaları konusunda Türkiye'nin önde gelen kuruluşu.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                        <li><a href="hakkimizda.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li>
+                        <li><a href="egitimler.html"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+                        <li><a href="etkinlikler.html"><i class="fas fa-calendar-alt"></i> Etkinlikler</a></li>
+                        <li><a href="haberler.html"><i class="fas fa-newspaper"></i> Haberler</a></li>
+                        <li><a href="iletisim.html"><i class="fas fa-envelope"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Eğitimler</h3>
+                    <ul class="footer-links">
+                        <li><a href="temel-egitim.html"><i class="fas fa-book"></i> Temel Eğitim</a></li>
+                        <li><a href="ileri-egitim.html"><i class="fas fa-book-open"></i> İleri Seviye Eğitim</a></li>
+                        <li><a href="uzmanlik-egitimi.html"><i class="fas fa-book-reader"></i> Uzmanlık Eğitimi</a></li>
+                        <li><a href="online-egitim.html"><i class="fas fa-laptop"></i> Online Eğitimler</a></li>
+                        <li><a href="seminerler.html"><i class="fas fa-chalkboard-teacher"></i> Seminer ve Workshoplar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i>  İZMİR CAD. IHLAMUR SOK. 8/16 KIZILAY / ANKARA TÜRKİYE</li>
+                        <li><i class="fas fa-phone"></i> +90 507 153 50 28</li>
+                        <li><i class="fas fa-envelope"></i> bantlamakinezyo@gmail.com</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Kinezyo Bantlama Derneği. Tüm hakları saklıdır. </p>
+                <p> Designed by Umut Ziya Koçak </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // 1. Mobil menü toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenu.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-bars');
+        this.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // 2. Dropdown menüler için mobil uyumluluk
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const dropdown = this.nextElementSibling;
+                dropdown.classList.toggle('show');
+            }
+        });
+    });
+
+    // 3. Tüm menü linkleri için tıklama olayı
+    document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+        link.addEventListener('click', function() {
+            // Mobilde menüyü kapat
+            if (window.innerWidth <= 992) {
+                navMenu.classList.remove('active');
+                mobileMenu.querySelector('i').classList.add('fa-bars');
+                mobileMenu.querySelector('i').classList.remove('fa-times');
+                
+                // Açık dropdown'ları kapat
+                document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+    });
+});
+    </script>
+</body>
+</html>
