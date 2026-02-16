@@ -524,6 +524,24 @@
                 padding: 20px;
             }
         }
+        /* KURULLAR – FOTOĞRAF SABİT BOYUT (3.5 x 5 ORANI) */
+.about-image {
+    width: 140px;              /* İstersen 120–160 arası oynayabilirsin */
+    aspect-ratio: 7 / 10;      /* 3.5 x 5 oranı */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    margin: 10px 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* ESAS KRİTİK SATIR */
+    object-position: center;
+    display: block;
+}
+
     </style>
 </head>
 <body>
@@ -623,7 +641,9 @@
                         <i class="fas fa-user-md"></i>
                     </div>
                     <div class="about-image">
-                    <img src="image: url('KT\gul-baltaci.jpg');">
+                    <img src="KT/umut-kocak.jpeg" 
+                    alt="Doç. Dr. Umut Ziya Koçak">
+
                     </div>
                     <div class="member-info">
                         <div class="member-title">BAŞKAN</div>
@@ -640,7 +660,7 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:05052284879">0232 329 35 35</a></span>
+                        <span>Tel: <a href="tel:05052284879">0505 228 48 79</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -657,24 +677,27 @@
             <div class="member-card">
                 <div class="member-header">
                     <div class="member-icon">
-                        <i class="fas fa-user-graduate"></i>
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="about-image">
+                    <img src="KT/nihan-karatas.jpeg">
                     </div>
                     <div class="member-info">
                         <div class="member-title">II. BAŞKAN (Eğitim ve Organizasyon Sorumlusu)</div>
-                        <h3 class="member-name">Prof. Dr. Nihan KAFA</h3>
+                        <h3 class="member-name">Prof. Dr. Nihan KARATAŞ</h3>
                     </div>
                 </div>
                 
                 <div class="member-details">
                     <p><strong>Görev Yeri:</strong> Gazi Üniversitesi</p>
-                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Bölümüı</p>
-                    <p><strong>Adres:</strong> Emniyet Mahallesi Muammer Yaşar Bostancı Caddesi No.16 Beşevler-ANKARA</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Bölümü, Sporda Fizyoterapi ve Rehabilitasyon Anabilim Dalıı</p>
+                    <p><strong>Adres:</strong> Çankaya,ANKARA</p>
                 </div>
                 
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:03123051010">0312 216 26 50</a></span>
+                        <span>Tel: <a href="tel:03123051010">0312 216 26 32</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -687,6 +710,10 @@
                 <div class="member-header">
                     <div class="member-icon">
                         <i class="fas fa-user-tie"></i>
+                        </div>
+                    <div class="about-image">
+                    <img src="KT/irem-tamer.jpeg">
+
                     </div>
                     <div class="member-info">
                         <div class="member-title">GENEL SEKRETER</div>
@@ -695,7 +722,7 @@
                 </div>
                 
                 <div class="member-details">
-                    <p><strong>Görev Yeri:</strong> İzmir Katip Çelebi Üniversitesi</p>
+                    <p><strong>Görev Yeri:</strong> </p>
                     <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
                     <p><strong>Adres:</strong> Çiğli, 35620 İZMİR</p>
                 </div>
@@ -703,11 +730,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:05052284879">0232 329 35 35</a></span>
+                        <span>Tel: <a href="tel:05386948881">0538 694 88 81</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="mailto:umut_z_kocak@hotmail.com ">umut_z_kocak@hotmail.com </a></span>
+                        <span>E-posta: <a href="mailto:ptiremtamer@gmail.com ">ptiremtamer@gmail.com </a></span>
                     </div>
                 </div>
                 
@@ -717,10 +744,14 @@
             </div>
             
             <!-- Üye 3 (Örnek) -->
-            <div class="member-card">
+           <div class="member-card">
                 <div class="member-header">
                     <div class="member-icon">
                         <i class="fas fa-user-tie"></i>
+                        </div>
+                    <div class="about-image">
+                    <img src="KT/illknur-ezgi-dogan.jpeg">
+
                     </div>
                     <div class="member-info">
                         <div class="member-title">SAYMAN</div>
@@ -731,17 +762,17 @@
                 <div class="member-details">
                     <p><strong>Görev Yeri:</strong> Başkent Üniversitesi</p>
                     <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
-                    <p><strong>Adres:</strong> Bağlıca Kampüsü Eskişehir Yolu 20 km Etimesgut 06810 ANKARA</p>
+                    <p><strong>Adres:</strong> Başkent Üniversitesi Bağlıca Kampüsü, Etimesgut, ANKARA</p>
                 </div>
                 
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:03022466666">0302 2466666/1633</a></span>
+                        <span>Tel: <a href="tel:0312 2466673-1634">0312 2466673-1634</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="mailto:nihan_2002@hotmail.com">nihan_2002@hotmail.com</a></span>
+                        <span>E-posta: <a href="mailto:ilknurezgidogan@gmail.com">ilknurezgidogan@gmail.com</a></span>
                     </div>
                 </div>
                 
@@ -755,6 +786,11 @@
                 <div class="member-header">
                     <div class="member-icon">
                         <i class="fas fa-user-tie"></i>
+                        </div>
+                    <div class="about-image">
+                    <img src="KT/cagri-alan.jpeg">
+
+                    </div>
                     </div>
                     <div class="member-info">
                         <div class="member-title">ÜYE</div>
@@ -763,19 +799,19 @@
                 </div>
                 
                 <div class="member-details">
-                    <p><strong>Görev Yeri:</strong> Hacettepe Üniversitesi</p>
+                    <p><strong>Görev Yeri:</strong> </p>
                     <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
-                    <p><strong>Adres:</strong> Sıhhiye, 06100 Ankara</p>
+                    <p><strong>Adres:</strong> Çiğli, 35620 İZMİR</p>
                 </div>
                 
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:03123051010">0312 305 25 25</a></span>
+                        <span>Tel: <a href="tel:05457441938">0545 744 19 38</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="mailto:elif.turgut.pt@gmail.com">elif.turgut.pt@gmail.com</a></span>
+                        <span>E-posta: <a href="mailto:yusufcagrialan08@gmail.com">yusufcagrialan08@gmail.com</a></span>
                     </div>
                 </div>
                 
@@ -789,6 +825,10 @@
                 <div class="member-header">
                     <div class="member-icon">
                         <i class="fas fa-user-tie"></i>
+                        </div>
+                    <div class="about-image">
+                    <img src="KT/damla-deniz.jpeg">
+
                     </div>
                     <div class="member-info">
                         <div class="member-title">ÜYE</div>
@@ -797,19 +837,19 @@
                 </div>
                 
                 <div class="member-details">
-                    <p><strong>Görev Yeri:</strong> Gazi Üniversitesi</p>
-                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Bölümüı</p>
-                    <p><strong>Adres:</strong> Emniyet Mahallesi Muammer Yaşar Bostancı Caddesi No.16 Beşevler-ANKARA</p>
+                    <p><strong>Görev Yeri:</strong> </p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi Fizyoterapi ve Rehabilitasyon Bölümü</p>
+                    <p><strong>Adres:</strong> Bodrum, 48400 MUĞLA</p>
                 </div>
                 
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>Tel: <a href="tel:03123051010">0312 216 26 50</a></span>
+                        <span>Tel: <a href="tel:05331484133">0533 148 41 33</a></span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="mailto:fztnihankafa@gmail.com">fztnihankafa@gmail.com</a></span>
+                        <span>E-posta: <a href="mailto:damlatk@gmail.com">damlatk@gmail.com</a></span>
                     </div>
                 </div>
                 
@@ -823,6 +863,10 @@
                 <div class="member-header">
                     <div class="member-icon">
                         <i class="fas fa-user-tie"></i>
+                        </div>
+                    <div class="about-image">
+                    <img src="KT/leyla-eraslan.jpeg">
+
                     </div>
                     <div class="member-info">
                         <div class="member-title">ÜYE</div>
@@ -831,9 +875,9 @@
                 </div>
                 
                 <div class="member-details">
-                    <p><strong>Görev Yeri:</strong> Medipol Üniversitesi</p>
-                    <p><strong>Bölüm:</strong> Fizyoterapi ve Rehabilitasyon Bölümü</p>
-                    <p><strong>Adres:</strong> ANKARA</p>
+                    <p><strong>Görev Yeri:</strong> Ankara Medipol Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Sağlık Bilimleri Fakültesi, Fizyoterapi ve Rehabilitasyon Bölümü</p>
+                    <p><strong>Adres:</strong> Talatpaşa Bulvarı No:4/1, Altındağ, 06050, Ankara</p>
                 </div>
                 
                 <div class="contact-info">
@@ -843,7 +887,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>E-posta: <a href="mailto:seherozyurek@gmail.com"></a></span>
+                        <span>E-posta: <a href="mailto:leylaseraslan@gmail.com">leylaseraslan@gmail.com</a></span>
                     </div>
                 </div>
                 
