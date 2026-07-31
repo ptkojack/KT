@@ -193,7 +193,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(91, 192, 222, 0.3); /* Saydam mavi */
+            background: rgba(91, 192, 222, 0.3);
         }
         
         .banner-content {
@@ -338,6 +338,86 @@
             left: 0;
             color: var(--secondary);
             font-weight: bold;
+        }
+
+        /* TAB STİLLERİ EKLENDİ */
+        .tabs-container {
+            margin-top: 50px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            background: #fff;
+        }
+
+        .tabs-header {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            background: #e6f7ff;
+            color: var(--secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--secondary);
+            background: #fff;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .program-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .program-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* FOOTER */
@@ -523,6 +603,11 @@
             .content-section {
                 padding: 20px;
             }
+            
+            .tab-btn {
+                padding: 15px 10px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -535,8 +620,6 @@
                 <div class="logo-container">
                 <!-- Logo Resmi -->
                 <img src="KT\logo (KT).png" alt="Kinezyo Bantlama Derneği Logo" class="logo">
-                
-              
                 </div>
             </div>
             
@@ -667,9 +750,48 @@
                 <p style="font-size: 1.1rem; font-weight: bold;">Kayıt Olmak İçin</p>
                 <p style="font-size: 1.1rem; font-weight: bold;">İlknur Ezgi Doğan: ilknurezgidogan@gmail.com</p>
                 <p style="font-size: 1.1rem; font-weight: bold;">Onur Turan: onur.turan@atlas.edu.tr</p>
-                
             </div>
         </div>
+
+        <!-- ========================================== -->
+        <!-- PROGRAM TABLARI EKLENDİ (TÜRKÇE/İNGİLİZCE ORTAK) -->
+        <!-- ========================================== -->
+        
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="openTab(event, 'day1')">Day 1 / 1. Gün</button>
+                <button class="tab-btn" onclick="openTab(event, 'day2')">Day 2 / 2. Gün</button>
+                <button class="tab-btn" onclick="openTab(event, 'day3')">Day 3 / 3. Gün</button>
+            </div>
+            
+            <!-- 1. GÜN İÇERİĞİ -->
+            <div id="day1" class="tab-content active">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #333;">Program - 1. Gün (October 2 / 2 Ekim)</h3>
+                <div class="program-images">
+                    <img src="Day1-1.png" alt="Kongre Programı 1. Gün - Bölüm 1">
+                    <img src="Day1-2.png" alt="Kongre Programı 1. Gün - Bölüm 2">
+                </div>
+            </div>
+
+            <!-- 2. GÜN İÇERİĞİ -->
+            <div id="day2" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #333;">Program - 2. Gün (October 3 / 3 Ekim)</h3>
+                <div class="program-images">
+                    <img src="Day2-1.png" alt="Kongre Programı 2. Gün - Bölüm 1">
+                    <img src="Day2-2.png" alt="Kongre Programı 2. Gün - Bölüm 2">
+                    <img src="Day2-3.png" alt="Kongre Programı 2. Gün - Bölüm 3">
+                </div>
+            </div>
+
+            <!-- 3. GÜN İÇERİĞİ -->
+            <div id="day3" class="tab-content">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #333;">Program - 3. Gün (October 4 / 4 Ekim)</h3>
+                <div class="program-images">
+                    <img src="Day3.png" alt="Kongre Programı 3. Gün">
+                </div>
+            </div>
+        </div>
+
 
         <!-- Türkçe ve İngilizce Bölümü Ayıran Çizgi -->
         <hr style="margin: 80px 0; border: none; border-top: 2px dashed #ccc;">
@@ -740,7 +862,6 @@
 
     </div>
 </section>
-<!-- KONGRE YENİ İÇERİK BİTİŞİ -->
 <!-- KONGRE YENİ İÇERİK BİTİŞİ -->
 
             
@@ -846,44 +967,63 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // 1. Mobil menü toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    
-    mobileMenu.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        this.querySelector('i').classList.toggle('fa-bars');
-        this.querySelector('i').classList.toggle('fa-times');
-    });
+            // 1. Mobil menü toggle
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.getElementById('nav-menu');
+            
+            mobileMenu.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
 
-    // 2. Dropdown menüler için mobil uyumluluk
-    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                const dropdown = this.nextElementSibling;
-                dropdown.classList.toggle('show');
-            }
-        });
-    });
-
-    // 3. Tüm menü linkleri için tıklama olayı
-    document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
-        link.addEventListener('click', function() {
-            // Mobilde menüyü kapat
-            if (window.innerWidth <= 992) {
-                navMenu.classList.remove('active');
-                mobileMenu.querySelector('i').classList.add('fa-bars');
-                mobileMenu.querySelector('i').classList.remove('fa-times');
-                
-                // Açık dropdown'ları kapat
-                document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
-                    dropdown.classList.remove('show');
+            // 2. Dropdown menüler için mobil uyumluluk
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        const dropdown = this.nextElementSibling;
+                        dropdown.classList.toggle('show');
+                    }
                 });
-            }
+            });
+
+            // 3. Tüm menü linkleri için tıklama olayı
+            document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+                link.addEventListener('click', function() {
+                    // Mobilde menüyü kapat
+                    if (window.innerWidth <= 992) {
+                        navMenu.classList.remove('active');
+                        mobileMenu.querySelector('i').classList.add('fa-bars');
+                        mobileMenu.querySelector('i').classList.remove('fa-times');
+                        
+                        // Açık dropdown'ları kapat
+                        document.querySelectorAll('.dropdown-menu.show').forEach(dropdown => {
+                            dropdown.classList.remove('show');
+                        });
+                    }
+                });
+            });
         });
-    });
-});
+
+        // 4. TAB KONTROL FONKSİYONU EKLENDİ
+        function openTab(evt, tabId) {
+            // Tüm tab içeriklerini gizle
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Tüm tab butonlarındaki "active" sınıfını kaldır
+            var tablinks = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // Tıklanan tabı ve ilgili içeriği aktif yap
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>
